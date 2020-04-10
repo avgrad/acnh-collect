@@ -1,0 +1,104 @@
+:root {
+  --button-height: 2.5rem;
+  --button-checkbox-padding: 0.3rem;
+  --button-checkbox-border-radius: 0.3rem;
+  --toolbar-gutter: 0.5rem;
+
+  --checkbox-background: rgba(0, 0, 0, 0.15);
+  --checkbox-background-checked: rgba(0, 0, 0, 0.25);
+  --checkbox-background-active: rgba(0, 0, 0, 0.4);
+  --checkbox-focus-outline: rgba(0, 0, 0, 0.7);
+  --checkbox-checkmark-color: rgba(0, 0, 0, 0.8);
+}
+
+/* @media (prefers-color-scheme: light) { */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --checkbox-background: rgba(255, 255, 255, 0.15);
+    --checkbox-background-checked: rgba(255, 255, 255, 0.25);
+    --checkbox-background-active: rgba(255, 255, 255, 0.4);
+    --checkbox-focus-outline: rgba(255, 255, 255, 0.7);
+    --checkbox-checkmark-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+label.checkbox {
+  border: none;
+  display: inline-block;
+  position: relative;
+  height: var(--button-height);
+  line-height: var(--button-height);
+  margin: calc(0.5 * var(--toolbar-gutter));
+  padding: 0 0.3rem;
+  padding-left: var(--button-height);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+
+label.checkbox:active .checkmark,
+label.checkbox input:checked:active ~ .checkmark {
+  background-color: var(--checkbox-background-active);
+}
+
+label.checkbox:focus-within .checkmark {
+  outline: 2px dotted var(--checkbox-focus-outline);
+}
+
+label.checkbox input[type="checkbox"] {
+  /*display: none;*/
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+label.checkbox .checkmark {
+  position: absolute;
+  top: var(--button-checkbox-padding);
+  left: var(--button-checkbox-padding);
+  width: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
+  height: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
+  background-color: var(--checkbox-background);
+  border-radius: var(--button-checkbox-border-radius);
+}
+
+/* When the checkbox is checked, add a darker background */
+label.checkbox input:checked ~ .checkmark {
+  background-color: var(--checkbox-background-checked);
+}
+
+/* Create the checkmark */
+label.checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  /* checkmark styling */
+  border: solid var(--checkbox-checkmark-color);
+  border-width: 0 0.2rem 0.2rem 0;
+  /* checkmark positioning */
+  left: 32%;
+  top: 13%;
+  width: 25%;
+  height: 45%;
+  -webkit-transform: rotate(-20deg) scale(1.4);
+  -ms-transform: rotate(-20deg) scale(1.4);
+  transform: rotate(-20deg) scale(1.4);
+}
+
+/* Show the checkmark when checked */
+label.checkbox input:checked ~ .checkmark:after {
+  display: block;
+  opacity: 1;
+  /* rotate to default checkmark style when checked */
+  -webkit-transform: rotate(45deg) scale(1);
+  -ms-transform: rotate(45deg) scale(1);
+  transform: rotate(45deg) scale(1);
+}
