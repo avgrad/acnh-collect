@@ -1,6 +1,6 @@
 # ACNH Collect
 
-A simple web app with a checklist for all insects, fish and fossils in Animal Crossing New Horizon.
+A simple web app with a checklist for all insects, fish and fossils in Animal Crossing New Horizons.
 
 Your data is saved only locally within your browser, therefore no account is needed, but your progress is only saved on that device.
 
