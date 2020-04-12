@@ -1,6 +1,7 @@
 import React, { createContext, useContext } from "react";
 import collectionData from "./collectionData";
 import useCurrentTime from "./helpers/useCurrentTime";
+import { nameProxy } from "./resources";
 import { applyFiltersToData, filters } from "./filters";
 import useFilter from "./useFilter";
 import useDonationStorage from "./useDonationStorage";
@@ -29,6 +30,9 @@ export const Provider = ({ children }) => {
     currentTime,
     donated
   );
+  const displayedCollection = filteredCollection
+    .sort((a, b) => ("" + nameProxy(a.name)).localeCompare(nameProxy(b.name)));
+  // TODO in the best case, it should be possible to use just x.name to get the localized name
 
   const bugs = collectionData.filter(e => e.type === "BUG");
   const fish = collectionData.filter(e => e.type === "FISH");
@@ -46,11 +50,11 @@ export const Provider = ({ children }) => {
       donated: donated.filter(d => fossils.find(f => f.id === d)).length,
       all: fossils.length
     },
-    currentFilter: filteredCollection.length
+    currentFilter: displayedCollection.length
   };
 
   const store = {
-    filteredCollection,
+    displayedCollection,
     activeFilterSet,
     setFilter,
     donated,

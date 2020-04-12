@@ -48,7 +48,7 @@ export default function App() {
       </div>
       <hr />
       <div className="collection-list">
-        {collection.filteredCollection.map(entry => (
+        {collection.displayedCollection.map(entry => (
           <div key={entry.id} className="entry">
             <label className="checkbox">
               <input
