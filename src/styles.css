@@ -21,6 +21,10 @@ body {
   color: var(--main-font-color);
 }
 
+a {
+  color: var(--main-font-color);
+}
+
 h1,
 h2 {
   margin: 0;
@@ -51,4 +55,12 @@ h2 {
 .collection-list .entry small {
   font-size: 0.8em;
   opacity: 0.7;
+}
+
+footer {
+  border-top: 1px solid var(--main-font-color);
+  margin-top: 1.5em;
+  padding: 1.5em 0;
+  text-align: center;
+  opacity: 0.3;
 }

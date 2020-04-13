@@ -72,6 +72,9 @@ export default function App() {
           </div>
         ))}
       </div>
+      <footer>
+        Source on <a href="https://github.com/sydeslyde/acnh-collect" target="_blank" rel="noopener noreferrer">GitHub</a> &mdash; Hosting via GitHub Pages &mdash; Version {process.env.REACT_APP_VERSION}
+      </footer>
     </React.Fragment>
   );
 }
