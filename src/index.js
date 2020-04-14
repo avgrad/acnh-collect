@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import lang from './resources';
+import lang from "./resources";
 import { Provider as CollectionProvider } from "./useCollection";
 import * as serviceWorker from "./serviceWorker";
 

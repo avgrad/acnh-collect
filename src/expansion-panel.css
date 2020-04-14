@@ -1,0 +1,55 @@
+:root {
+    --expansion-panel-head-background: rgb(235, 235, 235);
+}
+  
+/* @media (prefers-color-scheme: light) { */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --expansion-panel-head-background: rgb(20, 20, 20);
+    }
+}
+
+.expansion-panel {
+    border: 2px solid var(--expansion-panel-head-background);
+}
+
+.expansion-panel > label.checkbox {
+    display: block;
+    background-color: var(--expansion-panel-head-background);
+    margin: 0; /* move margin to bottom, to get a continous background fill up to expansion-panel borderand keep positioning */
+    border: calc(0.5 * var(--toolbar-gutter)) solid transparent;
+}
+
+/* Create the checkmark */
+.expansion-panel label.checkbox .checkmark.expandmark:after {
+    opacity: 1;
+    /* checkmark styling */
+    border: solid var(--checkbox-checkmark-color);
+    border-width: 0 0.2rem 0.2rem 0;
+    /* checkmark positioning */
+    left: 32%;
+    top: 23%;
+    width: 30%;
+    height: 30%;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+  
+/* Show the checkmark when checked */
+.expansion-panel label.checkbox input:checked ~ .checkmark.expandmark:after {
+    /* rotate to default checkmark style when checked */
+    top: 38%;
+    -webkit-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    transform: rotate(-135deg);
+}
+
+.expansion-panel .content {
+    display: none;
+}
+
+.expansion-panel .content.open {
+    display: block;
+}
+

@@ -6,6 +6,7 @@ import { filters } from "./filters";
 import FilterCheckbox from "./FilterCheckbox";
 import useCurrentTime from "./helpers/useCurrentTime";
 import lang, { nameProxy } from "./resources";
+import ExpansionPanel from "./ExpansionPanel";
 
 export default function App() {
   const collection = useCollection();
@@ -14,21 +15,23 @@ export default function App() {
     <React.Fragment>
       <h1>Animal Crossing: New Horizons</h1>
       <h2>{currentTime.toLocaleString()}</h2>
-      <div className="filters">
-        <div>
-          <FilterCheckbox filter={filters.showBugs} />
-          <FilterCheckbox filter={filters.showFish} />
-          <FilterCheckbox filter={filters.showFossils} />
+      <ExpansionPanel label={lang.filter.FILTER_SETTINGS}>
+        <div className="filters">
+          <div>
+            <FilterCheckbox filter={filters.showBugs} />
+            <FilterCheckbox filter={filters.showFish} />
+            <FilterCheckbox filter={filters.showFossils} />
+          </div>
+          <div>
+            <FilterCheckbox filter={filters.collected} />
+            <FilterCheckbox filter={filters.uncollected} />
+          </div>
+          <div>
+            <FilterCheckbox filter={filters.currentTime} />
+            <FilterCheckbox filter={filters.currentMonth} />
+          </div>
         </div>
-        <div>
-          <FilterCheckbox filter={filters.collected} />
-          <FilterCheckbox filter={filters.uncollected} />
-        </div>
-        <div>
-          <FilterCheckbox filter={filters.currentTime} />
-          <FilterCheckbox filter={filters.currentMonth} />
-        </div>
-      </div>
+      </ExpansionPanel>
       <hr />
       <div className="stats">
         <span>

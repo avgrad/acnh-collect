@@ -79,7 +79,7 @@ label.checkbox .checkmark:after {
   position: absolute;
   display: block;
   opacity: 0;
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out, top 0.2s ease-out;
   /* checkmark styling */
   border: solid var(--checkbox-checkmark-color);
   border-width: 0 0.2rem 0.2rem 0;
