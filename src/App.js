@@ -1,12 +1,12 @@
 import React from "react";
 import "./styles.css";
-import "./checkboxStyles.css";
 import { useCollection } from "./useCollection";
 import { filters } from "./filters";
 import FilterCheckbox from "./FilterCheckbox";
 import useCurrentTime from "./helpers/useCurrentTime";
 import lang, { nameProxy } from "./resources";
 import ExpansionPanel from "./ExpansionPanel";
+import CheckBox from "./CheckBox";
 
 export default function App() {
   const collection = useCollection();
@@ -53,17 +53,8 @@ export default function App() {
       <div className="collection-list">
         {collection.displayedCollection.map(entry => (
           <div key={entry.id} className="entry">
-            <label className="checkbox">
-              <input
-                type="checkbox"
-                checked={collection.donated.includes(entry.id)}
-                onChange={e =>
-                  collection.setDonated(entry.id, e.currentTarget.checked)
-                }
-              />
-              &nbsp;
-              <span className="checkmark" />
-            </label>
+            <CheckBox checked={collection.donated.includes(entry.id)}
+              onChange={e => collection.setDonated(entry.id, e.currentTarget.checked)} />
             <div className="entry-label">
               {lang.entryType[entry.type]} {nameProxy(entry.name)} -{" "}
               <small>
