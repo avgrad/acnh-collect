@@ -3,12 +3,14 @@ import general from "./general";
 import filter from "./filter";
 import entryType from "./entryType";
 import location from "./location";
+import availability from "./availability";
 
 export default {
   general,
   filter,
   entryType,
-  location
+  location,
+  availability
 };
 
 export const nameProxy = nameObj => {
