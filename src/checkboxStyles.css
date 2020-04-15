@@ -22,14 +22,14 @@
   }
 }
 
-label.checkbox {
+label.checkbox,
+.radio label {
   border: none;
   display: inline-block;
   position: relative;
   height: var(--button-height);
   line-height: var(--button-height);
   margin: calc(0.5 * var(--toolbar-gutter));
-  padding: 0 0.3rem;
   padding-left: var(--button-height);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -47,11 +47,13 @@ label.checkbox input:checked:active ~ .checkmark {
   background-color: var(--checkbox-background-active);
 }
 
-label.checkbox:focus-within .checkmark {
+label.checkbox:focus-within .checkmark,
+.radio:focus-within {
   outline: 2px dotted var(--checkbox-focus-outline);
 }
 
-label.checkbox input[type="checkbox"] {
+label.checkbox input[type="checkbox"],
+.radio > label input[type="radio"] {
   /*display: none;*/
   position: absolute;
   opacity: 0;
@@ -101,4 +103,44 @@ label.checkbox input:checked ~ .checkmark:after {
   -webkit-transform: rotate(45deg) scale(1);
   -ms-transform: rotate(45deg) scale(1);
   transform: rotate(45deg) scale(1);
+}
+
+/* radio select specialties */
+
+.radio {
+  display: inline-flex;
+  margin: calc(0.5 * var(--toolbar-gutter) + var(--button-checkbox-padding));
+  border-radius: var(--button-checkbox-border-radius);
+  overflow: hidden;
+  background-color: var(--checkbox-background);
+  /* fix wrong alignment caused by overflow:hidden
+  https://stackoverflow.com/questions/20566710/overflowhidden-displayinline-block-moves-text-upwards */
+  vertical-align: bottom;
+}
+
+.radio label {
+  height: calc(var(--button-height) - 2 * var(--button-checkbox-padding)); /* same height as acual checkboxes */
+  line-height: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
+  padding: 0 var(--button-checkbox-padding);
+  margin: 0 var(--button-checkbox-padding);
+}
+
+.radio > label .checkmark {
+  background-color: var(--checkbox-background);
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  /* push down to then translate up again to center */
+  padding-top: 100%;
+  border-radius: 50%;
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  opacity: 0;
+  transform: translateY(-50%) scale(0);
+  z-index: -1;
+}
+
+.radio > label input:checked ~ .checkmark {
+  opacity: 1;
+  transform: translateY(-50%) scale(0.85);
 }

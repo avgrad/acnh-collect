@@ -1,6 +1,7 @@
 import currentLang from "./currentLang";
 import general from "./general";
 import filter from "./filter";
+import sort from "./sort";
 import entryType from "./entryType";
 import location from "./location";
 import availability from "./availability";
@@ -8,6 +9,7 @@ import availability from "./availability";
 export default {
   general,
   filter,
+  sort,
   entryType,
   location,
   availability

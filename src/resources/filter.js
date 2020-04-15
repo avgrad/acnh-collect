@@ -28,10 +28,6 @@ const languageResources = {
   CURRENT_MONTH: {
     en: "Current Month",
     de: "Aktueller Monat"
-  },
-  FILTER_SETTINGS: {
-    en: "Filter Settings",
-    de: "Filtereinstellungen"
   }
 };
 

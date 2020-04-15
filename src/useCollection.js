@@ -1,9 +1,10 @@
 import React, { createContext, useContext } from "react";
 import collectionData from "./collectionData";
 import useCurrentTime from "./helpers/useCurrentTime";
-import { nameProxy } from "./resources";
 import { applyFiltersToData, filters } from "./filters";
+import { applySortToData } from "./sort";
 import useFilter from "./useFilter";
+import useSort from "./useSort";
 import useDonationStorage from "./useDonationStorage";
 
 const defaultFilters = [
@@ -24,15 +25,14 @@ export const useCollection = () => {
 export const Provider = ({ children }) => {
   const currentTime = useCurrentTime();
   const [activeFilterSet, setFilter] = useFilter(defaultFilters);
+  const sort = useSort("NAME", "ASC");
   const [donated, setDonated] = useDonationStorage();
   const filteredCollection = applyFiltersToData(
     activeFilterSet,
     currentTime,
     donated
   );
-  const displayedCollection = filteredCollection
-    .sort((a, b) => ("" + nameProxy(a.name)).localeCompare(nameProxy(b.name)));
-  // TODO in the best case, it should be possible to use just x.name to get the localized name
+  const displayedCollection = applySortToData(filteredCollection, sort.field, sort.direction);
 
   const bugs = collectionData.filter(e => e.type === "BUG");
   const fish = collectionData.filter(e => e.type === "FISH");
@@ -57,6 +57,7 @@ export const Provider = ({ children }) => {
     displayedCollection,
     activeFilterSet,
     setFilter,
+    sort,
     donated,
     setDonated,
     stats
