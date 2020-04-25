@@ -2,15 +2,15 @@ import currentLang from "./currentLang";
 
 const languageResources = {
   BUG: {
-    en: "Insect",
+    en: "🐛",
     de: "🐛"
   },
   FISH: {
-    en: "Fish",
+    en: "🦈",
     de: "🦈"
   },
   FOSSIL: {
-    en: "Fossil",
+    en: "🦴",
     de: "🦴" // 🦖
   }
 };

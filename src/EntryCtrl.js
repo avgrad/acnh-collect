@@ -21,21 +21,49 @@ function formatAvailabilityTimes(months, hours) {
   return ms + " — " + hs;
 }
 
-export default function EntryCtrl({ entry, ...rest }) {
-  const { donated, setDonated } = useCollection();
+function BasicEntryCtrl( { checked, onCheckedChanged, label, sublabel, secondary }) {
   return (
-    <div key={entry.id} className="entry">
-      <CheckBox checked={donated.includes(entry.id)}
-        onChange={e => setDonated(entry.id, e.currentTarget.checked)} />
+    <div className="entry">
+      <CheckBox checked={checked}
+        onChange={e => onCheckedChanged(e.currentTarget.checked)} />
       <div className="entry-label">
-        {lang.entryType[entry.type]} {nameProxy(entry.name)}
-        <small>
-          {" "}&mdash;{" "}
-          {entry.price || 0}💰{" "}
-          {entry.type !== "FOSSIL" && (<span>&mdash; {lang.location[entry.location]}</span>)}
-        </small>
-        {entry.type !== "FOSSIL" && (<small className="secondary"> &mdash; {formatAvailabilityTimes(entry.northernMonths, entry.hours)}</small>)}
+        {label}
+        {sublabel && <small> &mdash; {sublabel}</small>}
+        {secondary && <small className="secondary"> &mdash; {secondary}</small>}
       </div>
     </div>
   );
+}
+
+function FishInsectCtrl({ entry }) {
+  const { donated, setDonated } = useCollection();
+  return <BasicEntryCtrl
+    checked={donated.includes(entry.id)}
+    onCheckedChanged={(d) => setDonated(entry.id, d)}
+    label={lang.entryType[entry.type] + " " + nameProxy(entry.name)}
+    sublabel={`${entry.price || 0} 💰 — ${lang.location[entry.location]}`}
+    secondary={formatAvailabilityTimes(entry.northernMonths, entry.hours)}
+  />
+}
+
+function FossilCtrl({ entry }) {
+  const { donated, setDonated } = useCollection();
+  return <BasicEntryCtrl
+    checked={donated.includes(entry.id)}
+    onCheckedChanged={(d) => setDonated(entry.id, d)}
+    label={lang.entryType[entry.type] + " " + nameProxy(entry.name)}
+    sublabel={`${entry.price || 0} 💰`}
+  />
+}
+
+export default function EntryCtrl({ entry }) {
+  switch (entry.type) {
+    case "FISH":
+    case "BUG":
+      return <FishInsectCtrl entry={entry} />
+    case "FOSSIL":
+      return <FossilCtrl entry={entry} />
+    default:
+      return <div style={{ backgroundColor: "red" }}>ERROR: ENTRY TYPE "{entry.type}" HAS NO COMPONENT DEFINED</div>
+  }
 }
