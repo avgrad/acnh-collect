@@ -2,8 +2,8 @@ import React from "react";
 import "./styles.css";
 import { useCollection } from "./useCollection";
 import useCurrentTime from "./helpers/useCurrentTime";
-import lang from "./resources";
 import FilterSortCtrl from "./FilterSortCtrl";
+import StatsCtrl from "./StatsCtrl";
 import EntryCtrl from "./EntryCtrl";
 
 export default function App() {
@@ -15,22 +15,7 @@ export default function App() {
       <h2>{currentTime.toLocaleString()}</h2>
       <FilterSortCtrl />
       <hr />
-      <div className="stats">
-        <span>
-          {lang.entryType.BUG} {collection.stats.bugs.donated} /{" "}
-          {collection.stats.bugs.all}
-        </span>
-        <span className="seperator" />
-        <span>
-          {lang.entryType.FISH} {collection.stats.fish.donated} /{" "}
-          {collection.stats.fish.all}
-        </span>
-        <span className="seperator" />
-        <span>
-          {lang.entryType.FOSSIL} {collection.stats.fossils.donated} /{" "}
-          {collection.stats.fossils.all}
-        </span>
-      </div>
+      <StatsCtrl />
       <hr />
       <div className="collection-list">
         {collection.displayedCollection.map(entry => (
