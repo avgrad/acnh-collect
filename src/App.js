@@ -1,13 +1,11 @@
 import React from "react";
 import "./styles.css";
-import { useCollection } from "./useCollection";
 import useCurrentTime from "./helpers/useCurrentTime";
 import FilterSortCtrl from "./FilterSortCtrl";
 import StatsCtrl from "./StatsCtrl";
-import EntryCtrl from "./EntryCtrl";
+import ListDisplayCtrl from "./ListDisplayCtrl";
 
 export default function App() {
-  const collection = useCollection();
   const currentTime = useCurrentTime();
   return (
     <React.Fragment>
@@ -17,11 +15,7 @@ export default function App() {
       <hr />
       <StatsCtrl />
       <hr />
-      <div className="collection-list">
-        {collection.displayedCollection.map(entry => (
-          <EntryCtrl entry={entry} />
-        ))}
-      </div>
+      <ListDisplayCtrl />
       <footer>
         Source on <a href="https://github.com/sydeslyde/acnh-collect" target="_blank" rel="noopener noreferrer">GitHub</a> &mdash; Hosting via GitHub Pages &mdash; Version {process.env.REACT_APP_VERSION}
       </footer>
