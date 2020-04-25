@@ -1,15 +1,11 @@
 import React from "react";
 import "./styles.css";
 import { useCollection } from "./useCollection";
-import { filters } from "./filters";
-import { sortFields, sortDirections } from "./sort";
-import FilterCheckbox from "./FilterCheckbox";
 import useCurrentTime from "./helpers/useCurrentTime";
 import { getTimeRanges, getMonthRanges } from "./helpers/availabilityTimeHelpers";
 import lang, { nameProxy } from "./resources";
-import ExpansionPanel from "./ExpansionPanel";
 import CheckBox from "./CheckBox";
-import RadioSelect from "./RadioSelect";
+import FilterSortCtrl from "./FilterSortCtrl";
 
 function formatAvailabilityTimes(months, hours) {
   const ms = getMonthRanges(months)
@@ -35,39 +31,7 @@ export default function App() {
     <React.Fragment>
       <h1>Animal Crossing: New Horizons</h1>
       <h2>{currentTime.toLocaleString()}</h2>
-      <ExpansionPanel label={lang.general.FILTER_SORT}>
-        <div className="filters">
-          <div>
-            <FilterCheckbox filter={filters.showBugs} />
-            <FilterCheckbox filter={filters.showFish} />
-            <FilterCheckbox filter={filters.showFossils} />
-          </div>
-          <div>
-            <FilterCheckbox filter={filters.collected} />
-            <FilterCheckbox filter={filters.uncollected} />
-          </div>
-          <div>
-            <FilterCheckbox filter={filters.currentTime} />
-            <FilterCheckbox filter={filters.currentMonth} />
-          </div>
-        </div>
-        <div className="sort">
-          <RadioSelect
-            name="sort-field"
-            values={sortFields}
-            labelSource={lang.sort}
-            selectedValue={collection.sort.field}
-            onChange={v => collection.sort.setField(v)}
-          />
-          <RadioSelect
-            name="sort-direction"
-            values={sortDirections}
-            labelSource={lang.sort}
-            selectedValue={collection.sort.direction}
-            onChange={v => collection.sort.setDirection(v)}
-          />
-        </div>
-      </ExpansionPanel>
+      <FilterSortCtrl />
       <hr />
       <div className="stats">
         <span>
