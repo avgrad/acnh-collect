@@ -2,14 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import lang from "./resources";
-import { Provider as CollectionProvider } from "./useCollection";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CollectionProvider>
       <App />
-    </CollectionProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
