@@ -15,12 +15,12 @@ export default {
   availability
 };
 
-export const nameProxy = nameObj => {
+export const generalLangProxy = nameObj => {
   const name = nameObj[currentLang];
   if (name) {
     return name;
   }
-  return `NAME_${currentLang.toUpperCase()}_NOT_FOUND[${JSON.stringify(
+  return `PROPERTY_${currentLang.toUpperCase()}_NOT_FOUND[${JSON.stringify(
     nameObj
   )}]`;
 };

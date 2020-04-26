@@ -7,7 +7,8 @@ export const filters = {
   currentMonth: "CURRENT_MONTH",
   showBugs: "SHOW_BUGS",
   showFish: "SHOW_FISH",
-  showFossils: "SHOW_FOSSILS"
+  showFossils: "SHOW_FOSSILS",
+  showArt: "SHOW_ART"
 };
 
 function filterForAvailabilityAtTime(currentDate) {
@@ -51,6 +52,9 @@ export function applyFiltersToData(filterSet, currentTime, donatedItems) {
 
   if (!filterSet.includes(filters.showFossils))
     collection = collection.filter(entry => entry.type !== "FOSSIL");
+
+  if (!filterSet.includes(filters.showArt))
+    collection = collection.filter(entry => entry.type !== "ART");
 
   return collection;
 }

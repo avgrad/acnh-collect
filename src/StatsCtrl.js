@@ -20,6 +20,11 @@ export default function StatsCtrl({ ...rest }) {
         {lang.entryType.FOSSIL} {stats.fossils.donated} /{" "}
         {stats.fossils.all}
       </span>
+      <span className="seperator" />
+      <span>
+        {lang.entryType.ART} {stats.art.donated} /{" "}
+        {stats.art.all}
+      </span>
     </div>
   );
 }

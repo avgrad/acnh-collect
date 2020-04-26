@@ -37,6 +37,7 @@ export const Provider = ({ children }) => {
   const bugs = collectionData.filter(e => e.type === "BUG");
   const fish = collectionData.filter(e => e.type === "FISH");
   const fossils = collectionData.filter(e => e.type === "FOSSIL");
+  const art = collectionData.filter(e => e.type === "ART");
   const stats = {
     bugs: {
       donated: donated.filter(d => bugs.find(b => b.id === d)).length,
@@ -49,6 +50,10 @@ export const Provider = ({ children }) => {
     fossils: {
       donated: donated.filter(d => fossils.find(f => f.id === d)).length,
       all: fossils.length
+    },
+    art: {
+      donated: donated.filter(d => art.find(a => a.id === d)).length,
+      all: art.length
     },
     currentFilter: displayedCollection.length
   };

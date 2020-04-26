@@ -12,6 +12,10 @@ const languageResources = {
   FOSSIL: {
     en: "🦴",
     de: "🦴" // 🦖
+  },
+  ART: {
+    en: "🎨",
+    de: "🎨"
   }
 };
 

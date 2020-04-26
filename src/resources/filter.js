@@ -13,6 +13,10 @@ const languageResources = {
     en: "Show Fossils",
     de: "Fossilien anzeigen"
   },
+  SHOW_ART: {
+    en: "Show Art",
+    de: "Kunstwerke anzeigen"
+  },
   UNCOLLECTED: {
     en: "Uncollected ",
     de: "Ungestiftete"

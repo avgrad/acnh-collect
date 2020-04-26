@@ -1,7 +1,7 @@
-import { nameProxy } from "./resources";
+import { generalLangProxy } from "./resources";
 
 const sortFunctions = {
-  NAME: (a, b) => ("" + nameProxy(a.name)).localeCompare(nameProxy(b.name)),
+  NAME: (a, b) => ("" + generalLangProxy(a.name)).localeCompare(generalLangProxy(b.name)),
   PRICE: (a, b) => a.price - b.price,
   TYPE: (a, b) => ("" + a.type).localeCompare(b.type)
 };

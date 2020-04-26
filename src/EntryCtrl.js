@@ -1,6 +1,6 @@
 import React from "react";
 import { useCollection } from "./useCollection";
-import lang, { nameProxy } from "./resources";
+import lang, { generalLangProxy } from "./resources";
 import { getTimeRanges, getMonthRanges } from "./helpers/availabilityTimeHelpers";
 import CheckBox from "./CheckBox";
 
@@ -40,7 +40,7 @@ function FishInsectCtrl({ entry }) {
   return <BasicEntryCtrl
     checked={donated.includes(entry.id)}
     onCheckedChanged={(d) => setDonated(entry.id, d)}
-    label={lang.entryType[entry.type] + " " + nameProxy(entry.name)}
+    label={lang.entryType[entry.type] + " " + generalLangProxy(entry.name)}
     sublabel={`${entry.price || 0} 💰 — ${lang.location[entry.location]}`}
     secondary={formatAvailabilityTimes(entry.northernMonths, entry.hours)}
   />
@@ -51,8 +51,18 @@ function FossilCtrl({ entry }) {
   return <BasicEntryCtrl
     checked={donated.includes(entry.id)}
     onCheckedChanged={(d) => setDonated(entry.id, d)}
-    label={lang.entryType[entry.type] + " " + nameProxy(entry.name)}
+    label={lang.entryType[entry.type] + " " + generalLangProxy(entry.name)}
     sublabel={`${entry.price || 0} 💰`}
+  />
+}
+
+function ArtCtrl({ entry }) {
+  const { donated, setDonated } = useCollection();
+  return <BasicEntryCtrl
+    checked={donated.includes(entry.id)}
+    onCheckedChanged={(d) => setDonated(entry.id, d)}
+    label={lang.entryType[entry.type] + " " + generalLangProxy(entry.name)}
+    secondary={generalLangProxy(entry.fakeInfo)}
   />
 }
 
@@ -63,6 +73,8 @@ export default function EntryCtrl({ entry }) {
       return <FishInsectCtrl entry={entry} />
     case "FOSSIL":
       return <FossilCtrl entry={entry} />
+    case "ART":
+      return <ArtCtrl entry={entry} />
     default:
       return <div style={{ backgroundColor: "red" }}>ERROR: ENTRY TYPE "{entry.type}" HAS NO COMPONENT DEFINED</div>
   }

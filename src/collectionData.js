@@ -17,7 +17,8 @@ export const months = Object.values(m);
 const t = {
   fossil: "FOSSIL",
   bug: "BUG",
-  fish: "FISH"
+  fish: "FISH",
+  art: "ART"
 };
 
 const collectionData = [
@@ -120,7 +121,7 @@ const collectionData = [
       en: "Anomalocaris"
     },
     type: t.fossil,
-    price: null,
+    price: 2000,
     rarity: null,
     location: null,
     northernMonths: null,
@@ -390,7 +391,7 @@ const collectionData = [
       en: "Golden stag"
     },
     type: t.bug,
-    price: null,
+    price: 10000,
     rarity: "EXTREMELY_RARE",
     location: "TREE",
     northernMonths: [m.jul, m.aug],
@@ -1733,7 +1734,7 @@ const collectionData = [
       en: "Damselfly"
     },
     type: t.bug,
-    price: null,
+    price: 400,
     rarity: null,
     location: "FLYING",
     northernMonths: [m.jan, m.feb, m.nov, m.dec],
@@ -1962,7 +1963,7 @@ const collectionData = [
       en: "Amber"
     },
     type: t.fossil,
-    price: null,
+    price: 4800,
     rarity: null,
     location: null,
     northernMonths: null,
@@ -2082,7 +2083,7 @@ const collectionData = [
       en: "Giraffe stag"
     },
     type: t.bug,
-    price: null,
+    price: 12000,
     rarity: null,
     location: "TREE",
     northernMonths: [m.jul, m.aug],
@@ -2287,7 +2288,7 @@ const collectionData = [
       en: "Horned hercules"
     },
     type: t.bug,
-    price: null,
+    price: 12000,
     rarity: "EXTREMELY_RARE",
     location: "TREE",
     northernMonths: [m.jul, m.aug],
@@ -2634,7 +2635,7 @@ const collectionData = [
       en: "Australopith"
     },
     type: t.fossil,
-    price: null,
+    price: 1100,
     rarity: null,
     location: null,
     northernMonths: null,
@@ -2796,7 +2797,7 @@ const collectionData = [
       en: "Dung beetle"
     },
     type: t.bug,
-    price: null,
+    price: 300,
     rarity: null,
     location: "GROUND",
     northernMonths: [m.jan, m.feb, m.dec],
@@ -2863,7 +2864,7 @@ const collectionData = [
       en: "Right Quetzal Wing"
     },
     type: t.fossil,
-    price: null,
+    price: 5000,
     rarity: null,
     location: null,
     northernMonths: null,
@@ -3978,7 +3979,7 @@ const collectionData = [
       en: "Myllokunmingia"
     },
     type: t.fossil,
-    price: null,
+    price: 1500,
     rarity: null,
     location: null,
     northernMonths: null,
@@ -5362,11 +5363,11 @@ const collectionData = [
   {
     id: "nptg8vh3n4",
     name: {
-      de: "Leuchtkäfer",
+      de: "Glühwürmchen",
       en: "Firefly"
     },
     type: t.bug,
-    price: null,
+    price: 460,
     rarity: "COMMON",
     location: "FLYING",
     northernMonths: [m.jun],
@@ -5842,6 +5843,565 @@ const collectionData = [
     northernMonths: null,
     souternMonths: null,
     hours: null
+  },
+  {
+    id: "uk4j280dl7",
+    name: {
+      de: "Altertumsgemälde",
+      en: "Quaint Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung zeigt Frau viel mehr als dünnen Fluss Milch ausgießen",
+      en: "Fake shows woman pouring much more than thin stream of milk"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "e76b1uaaeln",
+    name: {
+      de: "Anmutsgemälde",
+      en: "Graceful Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung zeigt Frau viel größer, füllt fast ganzes Gemälde",
+      en: "Fake shows woman larger, almost full painting"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "cujqp7uerr",
+    name: {
+      de: "Athletenstatue",
+      en: "Robust Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung trägt eine Armbanduhr",
+      en: "Fake is wearing a wrist watch"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "goj3gwmoqok",
+    name: {
+      de: "Bekanntgemälde",
+      en: "Common Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "ikxmqdrtsv",
+    name: {
+      de: "Berühmtgemälde",
+      en: "Famous Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung hat Augenbrauen",
+      en: "Fake has eyebrows"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "k89j81gzbzr",
+    name: {
+      de: "Blumengemälde",
+      en: "Flowerly Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "mbqsz0tsk6m",
+    name: {
+      de: "Detailgemälde",
+      en: "Detailed Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung hat lilanes Laub, fehlende Unterschrift auf linker Seite",
+      en: "Fake has purple foliage and missing signature on left side"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "il66nwk340c",
+    name: {
+      de: "Dickkopfskulptur",
+      en: "Rock-Head Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung lächelt",
+      en: "Fake is smiling"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "2w8mzcfflh",
+    name: {
+      de: "Edelgemälde",
+      en: "Serene Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung hält einen grauen Hermelin",
+      en: "Fake has a grey ermine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "dt68bkohhzd",
+    name: {
+      de: "Einfachgemälde",
+      en: "Basic Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung hat längere Haare (vollständiger Pony)",
+      en: "Fake shows subject with more hair (full fringe)"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "4xtkzs46biu",
+    name: {
+      de: "Eleganzstatue",
+      en: "Beautiful Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung trägt eine Halskette",
+      en: "Fake is wearing a necklace"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "bqls5c2nu5",
+    name: {
+      de: "Enormgemälde",
+      en: "Amazing Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung zeigt mittigen Mann ohne Hut",
+      en: "Fake shows central subject without his hat"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "37l2fmv3fdy",
+    name: {
+      de: "Erhabenstatue",
+      en: "Valiant Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung hat anders fallendes Kleid",
+      en: "Fake has dress falling differently"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "lvvfmoklui",
+    name: {
+      de: "Feierlichgemälde",
+      en: "Solemn Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung zeigt Mann im Hintergrund seinen Arm höher heben",
+      en: "Fake shows man in the background lifting his arm higher"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "ce47gv380r",
+    name: {
+      de: "Funkelgemälde",
+      en: "Twinkling Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "630mxcm29u7",
+    name: {
+      de: "Furchtgemälde",
+      en: "Scary Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung hat Augenbrauen nach außen geneigt",
+      en: "Fake has eyebrows tilted outwards"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "hq874j9hhnu",
+    name: {
+      de: "Galantstatue",
+      en: "Gallant Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung hält etwas unter seinem Arm",
+      en: "Fake is holding something under his arm"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "uhor8cevu7b",
+    name: {
+      de: "Geheimnisbüste",
+      en: "Mystic Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung trägt Ohrring am rechten Ohr",
+      en: "Fake has an earring on the right ear"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "qfyoj6j851n",
+    name: {
+      de: "Gemüsegemälde",
+      en: "Jolly Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung fehlt Spross auf der Brust",
+      en: "Fake has sprout on chest missing"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "tkko9ecqkr",
+    name: {
+      de: "Hinweisskulptur",
+      en: "Informative Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung ist blau",
+      en: "Fake is blue"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "bcwwyxt774v",
+    name: {
+      de: "Hübschgemälde",
+      en: "Nice Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "xrr56whmjld",
+    name: {
+      de: "Kraftgemälde",
+      en: "Moody Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "8ng267p73lv",
+    name: {
+      de: "Kriegerstatue",
+      en: "Warrior Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung hält eine Schaufel",
+      en: "Fake is Holding a shovel"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "2ooppbm75b2",
+    name: {
+      de: "Lichtgemälde",
+      en: "Glowing Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "gjpt8x1ac24",
+    name: {
+      de: "Perfektgemälde",
+      en: "Perfect Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "pkd232uuv6e",
+    name: {
+      de: "Perlengemälde",
+      en: "Wistful Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung hat sternförmige Ohrringe",
+      en: "Fake has star shaped earrings"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "914aqij4hu",
+    name: {
+      de: "Prachtskulptur",
+      en: "Tremendous Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung hat einen Deckel",
+      en: "Fake has a lid"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "3sv8nepjo1a",
+    name: {
+      de: "Rätselgemälde",
+      en: "Mysterious Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "idkj07rpp6",
+    name: {
+      de: "Ruhegemälde",
+      en: "Calm Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "ni8vfj2buj9",
+    name: {
+      de: "Schöngemälde",
+      en: "Moving Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung fehlen Bäume in rechter oberer Ecke",
+      en: "Fake misses trees in top right corner"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "nvow580e5v",
+    name: {
+      de: "Strenggemälde",
+      en: "Proper Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "p2o6t3yewld",
+    name: {
+      de: "Ungestümgemälde (links)",
+      en: "Wild Painting Left Half"
+    },
+    fakeInfo: {
+      de: "Fälschung zeigt Monster in Grün",
+      en: "Fake shows monster in green"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "pakmji5rt9",
+    name: {
+      de: "Ungestümgemälde (rechts)",
+      en: "Wild Painting Right Half"
+    },
+    fakeInfo: {
+      de: "Fälschung zeigt Monster in Weiß",
+      en: "Fake shows monster in white"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "0eq2bpi2xiim",
+    name: {
+      de: "Uraltstatue",
+      en: "Ancient Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung hat einen Kopfschmuck mit \"Antennen\"",
+      en: "Fake has a headpiece with \"antennas\""
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "tn7i1ormdo",
+    name: {
+      de: "Versinkgemälde",
+      en: "Sinking Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "bi3sesjcdp8",
+    name: {
+      de: "Vertrautstatue",
+      en: "Familiar Statue"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "0jutq3uxjja",
+    name: {
+      de: "Wahrgemälde",
+      en: "Worthy Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "o0mgu8qc5uq",
+    name: {
+      de: "Warmgemälde",
+      en: "Warm Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "zeuyyprr29q",
+    name: {
+      de: "Wellengemälde",
+      en: "Dynamic Painting"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "a317o9zy0tn",
+    name: {
+      de: "Wintergemälde",
+      en: "Scenic Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung zeigt nur einen jäger mit weniger Hunden",
+      en: "Fake shows only one hunter with the dogs"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "lw4wo7buaze",
+    name: {
+      de: "Wissenschaftsgemälde",
+      en: "Academic Painting"
+    },
+    fakeInfo: {
+      de: "Fälschung hat einen Kaffeefleck in rechter oberer Ecke",
+      en: "Fake has coffee stain in top right corner"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "71gvvzzhmg6",
+    name: {
+      de: "Wölfinnenstatue",
+      en: "Motherly Statue"
+    },
+    fakeInfo: {
+      de: "Fälschung hängt die Zunge aus dem Maul",
+      en: "Fake has tongue sticking out"
+    },
+    type: t.art,
+    price: null
+  },
+  {
+    id: "z2mzp4it918",
+    name: {
+      de: "Würdestatue",
+      en: "Great Statue"
+    },
+    fakeInfo: {
+      de: "immer original",
+      en: "always genuine"
+    },
+    type: t.art,
+    price: null
   }
 ];
 
