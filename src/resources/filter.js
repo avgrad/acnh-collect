@@ -32,6 +32,10 @@ const languageResources = {
   CURRENT_MONTH: {
     en: "Current Month",
     de: "Aktueller Monat"
+  },
+  NO_RESULTS: {
+    en: "No matches for current filter settings",
+    de : "Keine Übereinstimmungen für aktuelle Filter-Einstellungen"
   }
 };
 

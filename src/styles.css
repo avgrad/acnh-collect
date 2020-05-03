@@ -51,6 +51,10 @@ h2 {
   border-left: 1px solid var(--main-font-color);
 }
 
+.collection-list .no-matches {
+  text-align: center;
+}
+
 .collection-list .entry {
   display: grid;
   grid-template-columns: auto 1fr;
