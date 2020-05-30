@@ -6007,8 +6007,8 @@ const collectionData = [
       en: "Valiant Statue"
     },
     fakeInfo: {
-      de: "Fälschung hat anders fallendes Kleid",
-      en: "Fake has dress falling differently"
+      de: "Fälschung hat linkes Bein vorne",
+      en: "Fake has left leg forward"
     },
     type: t.art,
     price: null
