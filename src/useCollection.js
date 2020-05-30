@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from "react";
+import React, { createContext, useContext, useMemo } from "react";
 import collectionData from "./collectionData";
 import useCurrentTime from "./helpers/useCurrentTime";
 import { applyFiltersToData, filters } from "./filters";
@@ -27,18 +27,18 @@ export const Provider = ({ children }) => {
   const [activeFilterSet, setFilter] = useFilter(defaultFilters);
   const sort = useSort("NAME", "ASC");
   const [donated, setDonated] = useDonationStorage();
-  const filteredCollection = applyFiltersToData(
+  const filteredCollection = applyFiltersToData( // TODO memoize based on day and hour
     activeFilterSet,
     currentTime,
     donated
   );
-  const displayedCollection = applySortToData(filteredCollection, sort.field, sort.direction);
+  const displayedCollection = useMemo(() => applySortToData(filteredCollection, sort.field, sort.direction), [filteredCollection, sort.field, sort.direction]);
 
-  const bugs = collectionData.filter(e => e.type === "BUG");
-  const fish = collectionData.filter(e => e.type === "FISH");
-  const fossils = collectionData.filter(e => e.type === "FOSSIL");
-  const art = collectionData.filter(e => e.type === "ART");
-  const stats = {
+  const bugs = useMemo(() => collectionData.filter(e => e.type === "BUG"), []);
+  const fish = useMemo(() => collectionData.filter(e => e.type === "FISH"), []);
+  const fossils = useMemo(() => collectionData.filter(e => e.type === "FOSSIL"), []);
+  const art = useMemo(() => collectionData.filter(e => e.type === "ART"), []);
+  const stats = useMemo(() => ({
     bugs: {
       donated: donated.filter(d => bugs.find(b => b.id === d)).length,
       all: bugs.length
@@ -54,9 +54,8 @@ export const Provider = ({ children }) => {
     art: {
       donated: donated.filter(d => art.find(a => a.id === d)).length,
       all: art.length
-    },
-    currentFilter: displayedCollection.length
-  };
+    }
+  }), [donated, bugs, fish, fossils, art]);
 
   const store = {
     displayedCollection,

@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useCallback } from "react";
 
 export default function useFilter(defaultFilterSet) {
   const [activeFilters, dispatch] = useReducer((state, action) => {
@@ -17,8 +17,8 @@ export default function useFilter(defaultFilterSet) {
     }
   }, defaultFilterSet);
 
-  const setFilter = (key, active) =>
-    dispatch({ type: "SET_FILTER", key, active });
+  const setFilter = useCallback((key, active) =>
+    dispatch({ type: "SET_FILTER", key, active }), [dispatch]);
 
   return [activeFilters, setFilter];
 }
