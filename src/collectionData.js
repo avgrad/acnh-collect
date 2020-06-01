@@ -5363,11 +5363,11 @@ const collectionData = [
   {
     id: "nptg8vh3n4",
     name: {
-      de: "Glühwürmchen",
+      de: "Leuchtkäfer",
       en: "Firefly"
     },
     type: t.bug,
-    price: 460,
+    price: 300,
     rarity: "COMMON",
     location: "FLYING",
     northernMonths: [m.jun],
