@@ -1,7 +1,7 @@
 :root {
     --expansion-panel-head-background: rgb(235, 235, 235);
 }
-  
+
 /* @media (prefers-color-scheme: light) { */
 @media (prefers-color-scheme: dark) {
     :root {
@@ -35,7 +35,7 @@
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
 }
-  
+
 /* Show the checkmark when checked */
 .expansion-panel label.checkbox input:checked ~ .checkmark.expandmark:after {
     /* rotate to default checkmark style when checked */
@@ -52,4 +52,3 @@
 .expansion-panel .content.open {
     display: block;
 }
-

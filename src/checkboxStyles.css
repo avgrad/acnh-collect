@@ -1,146 +1,151 @@
 :root {
-  --button-height: 2.5rem;
-  --button-checkbox-padding: 0.3rem;
-  --button-checkbox-border-radius: 0.3rem;
-  --toolbar-gutter: 0.5rem;
+    --button-height: 2.5rem;
+    --button-checkbox-padding: 0.3rem;
+    --button-checkbox-border-radius: 0.3rem;
+    --toolbar-gutter: 0.5rem;
 
-  --checkbox-background: rgba(0, 0, 0, 0.15);
-  --checkbox-background-checked: rgba(0, 0, 0, 0.25);
-  --checkbox-background-active: rgba(0, 0, 0, 0.4);
-  --checkbox-focus-outline: rgba(0, 0, 0, 0.7);
-  --checkbox-checkmark-color: rgba(0, 0, 0, 0.8);
+    --checkbox-background: rgba(0, 0, 0, 0.15);
+    --checkbox-background-checked: rgba(0, 0, 0, 0.25);
+    --checkbox-background-active: rgba(0, 0, 0, 0.4);
+    --checkbox-focus-outline: rgba(0, 0, 0, 0.7);
+    --checkbox-checkmark-color: rgba(0, 0, 0, 0.8);
 }
 
 /* @media (prefers-color-scheme: light) { */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --checkbox-background: rgba(255, 255, 255, 0.15);
-    --checkbox-background-checked: rgba(255, 255, 255, 0.25);
-    --checkbox-background-active: rgba(255, 255, 255, 0.4);
-    --checkbox-focus-outline: rgba(255, 255, 255, 0.7);
-    --checkbox-checkmark-color: rgba(255, 255, 255, 0.8);
-  }
+    :root {
+        --checkbox-background: rgba(255, 255, 255, 0.15);
+        --checkbox-background-checked: rgba(255, 255, 255, 0.25);
+        --checkbox-background-active: rgba(255, 255, 255, 0.4);
+        --checkbox-focus-outline: rgba(255, 255, 255, 0.7);
+        --checkbox-checkmark-color: rgba(255, 255, 255, 0.8);
+    }
 }
 
 label.checkbox,
 .radio label {
-  border: none;
-  display: inline-block;
-  position: relative;
-  height: var(--button-height);
-  line-height: var(--button-height);
-  margin: calc(0.5 * var(--toolbar-gutter));
-  padding-left: var(--button-height);
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  font-family: inherit;
-  font-size: inherit;
-  outline: none;
+    border: none;
+    display: inline-block;
+    position: relative;
+    height: var(--button-height);
+    line-height: var(--button-height);
+    margin: calc(0.5 * var(--toolbar-gutter));
+    padding-left: var(--button-height);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
 }
 
 label.checkbox:active .checkmark,
 label.checkbox input:checked:active ~ .checkmark {
-  background-color: var(--checkbox-background-active);
+    background-color: var(--checkbox-background-active);
 }
 
 label.checkbox:focus-within .checkmark,
 .radio:focus-within {
-  outline: 2px dotted var(--checkbox-focus-outline);
+    outline: 2px dotted var(--checkbox-focus-outline);
 }
 
 label.checkbox input[type="checkbox"],
 .radio > label input[type="radio"] {
-  /*display: none;*/
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+    /*display: none;*/
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
 }
 
 label.checkbox .checkmark {
-  position: absolute;
-  top: var(--button-checkbox-padding);
-  left: var(--button-checkbox-padding);
-  width: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
-  height: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
-  background-color: var(--checkbox-background);
-  border-radius: var(--button-checkbox-border-radius);
+    position: absolute;
+    top: var(--button-checkbox-padding);
+    left: var(--button-checkbox-padding);
+    width: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
+    height: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
+    background-color: var(--checkbox-background);
+    border-radius: var(--button-checkbox-border-radius);
 }
 
 /* When the checkbox is checked, add a darker background */
 label.checkbox input:checked ~ .checkmark {
-  background-color: var(--checkbox-background-checked);
+    background-color: var(--checkbox-background-checked);
 }
 
 /* Create the checkmark */
 label.checkbox .checkmark:after {
-  content: "";
-  position: absolute;
-  display: block;
-  opacity: 0;
-  transition: opacity 0.2s ease-out, transform 0.2s ease-out, top 0.2s ease-out;
-  /* checkmark styling */
-  border: solid var(--checkbox-checkmark-color);
-  border-width: 0 0.2rem 0.2rem 0;
-  /* checkmark positioning */
-  left: 32%;
-  top: 13%;
-  width: 25%;
-  height: 45%;
-  -webkit-transform: rotate(-20deg) scale(1.4);
-  -ms-transform: rotate(-20deg) scale(1.4);
-  transform: rotate(-20deg) scale(1.4);
+    content: "";
+    position: absolute;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out,
+        top 0.2s ease-out;
+    /* checkmark styling */
+    border: solid var(--checkbox-checkmark-color);
+    border-width: 0 0.2rem 0.2rem 0;
+    /* checkmark positioning */
+    left: 32%;
+    top: 13%;
+    width: 25%;
+    height: 45%;
+    -webkit-transform: rotate(-20deg) scale(1.4);
+    -ms-transform: rotate(-20deg) scale(1.4);
+    transform: rotate(-20deg) scale(1.4);
 }
 
 /* Show the checkmark when checked */
 label.checkbox input:checked ~ .checkmark:after {
-  display: block;
-  opacity: 1;
-  /* rotate to default checkmark style when checked */
-  -webkit-transform: rotate(45deg) scale(1);
-  -ms-transform: rotate(45deg) scale(1);
-  transform: rotate(45deg) scale(1);
+    display: block;
+    opacity: 1;
+    /* rotate to default checkmark style when checked */
+    -webkit-transform: rotate(45deg) scale(1);
+    -ms-transform: rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1);
 }
 
 /* radio select specialties */
 
 .radio {
-  display: inline-flex;
-  margin: calc(0.5 * var(--toolbar-gutter) + var(--button-checkbox-padding));
-  border-radius: var(--button-checkbox-border-radius);
-  overflow: hidden;
-  background-color: var(--checkbox-background);
-  /* fix wrong alignment caused by overflow:hidden
+    display: inline-flex;
+    margin: calc(0.5 * var(--toolbar-gutter) + var(--button-checkbox-padding));
+    border-radius: var(--button-checkbox-border-radius);
+    overflow: hidden;
+    background-color: var(--checkbox-background);
+    /* fix wrong alignment caused by overflow:hidden
   https://stackoverflow.com/questions/20566710/overflowhidden-displayinline-block-moves-text-upwards */
-  vertical-align: bottom;
+    vertical-align: bottom;
 }
 
 .radio label {
-  height: calc(var(--button-height) - 2 * var(--button-checkbox-padding)); /* same height as acual checkboxes */
-  line-height: calc(var(--button-height) - 2 * var(--button-checkbox-padding));
-  padding: 0 var(--button-checkbox-padding);
-  margin: 0 var(--button-checkbox-padding);
+    height: calc(
+        var(--button-height) - 2 * var(--button-checkbox-padding)
+    ); /* same height as acual checkboxes */
+    line-height: calc(
+        var(--button-height) - 2 * var(--button-checkbox-padding)
+    );
+    padding: 0 var(--button-checkbox-padding);
+    margin: 0 var(--button-checkbox-padding);
 }
 
 .radio > label .checkmark {
-  background-color: var(--checkbox-background);
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  /* push down to then translate up again to center */
-  padding-top: 100%;
-  border-radius: 50%;
-  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
-  opacity: 0;
-  transform: translateY(-50%) scale(0);
-  z-index: -1;
+    background-color: var(--checkbox-background);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    /* push down to then translate up again to center */
+    padding-top: 100%;
+    border-radius: 50%;
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+    opacity: 0;
+    transform: translateY(-50%) scale(0);
+    z-index: -1;
 }
 
 .radio > label input:checked ~ .checkmark {
-  opacity: 1;
-  transform: translateY(-50%) scale(0.85);
+    opacity: 1;
+    transform: translateY(-50%) scale(0.85);
 }
