@@ -10,6 +10,7 @@ import useDonationStorage from "./useDonationStorage";
 const defaultFilters = [
     filters.showBugs,
     filters.showFish,
+    filters.showSeaCreatures,
     filters.collected,
     filters.uncollected,
     filters.currentMonth,
@@ -46,6 +47,10 @@ export const Provider = ({ children }) => {
         () => collectionData.filter((e) => e.type === "FISH"),
         []
     );
+    const seaCreatures = useMemo(
+        () => collectionData.filter((e) => e.type === "SEACREATURE"),
+        []
+    );
     const fossils = useMemo(
         () => collectionData.filter((e) => e.type === "FOSSIL"),
         []
@@ -66,6 +71,12 @@ export const Provider = ({ children }) => {
                     .length,
                 all: fish.length,
             },
+            seaCreatures: {
+                donated: donated.filter((d) =>
+                    seaCreatures.find((s) => s.id === d)
+                ).length,
+                all: seaCreatures.length,
+            },
             fossils: {
                 donated: donated.filter((d) => fossils.find((f) => f.id === d))
                     .length,
@@ -77,7 +88,7 @@ export const Provider = ({ children }) => {
                 all: art.length,
             },
         }),
-        [donated, bugs, fish, fossils, art]
+        [donated, bugs, fish, seaCreatures, fossils, art]
     );
 
     const store = {

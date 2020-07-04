@@ -9,6 +9,10 @@ const languageResources = {
         en: "🦈",
         de: "🦈",
     },
+    SEACREATURE: {
+        en: "🤿",
+        de: "🤿",
+    },
     FOSSIL: {
         en: "🦴",
         de: "🦴", // 🦖

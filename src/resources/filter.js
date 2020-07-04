@@ -9,6 +9,10 @@ const languageResources = {
         en: "Show Fish",
         de: "Fische anzeigen",
     },
+    SHOW_SEACREATURES: {
+        en: "Show Sea Creatures",
+        de: "Meerestiere anzeigen",
+    },
     SHOW_FOSSILS: {
         en: "Show Fossils",
         de: "Fossilien anzeigen",

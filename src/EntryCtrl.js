@@ -76,6 +76,24 @@ function FishInsectCtrl({ entry }) {
     );
 }
 
+function SeaCreatureCtrl({ entry }) {
+    const { donated, setDonated } = useCollection();
+    return (
+        <BasicEntryCtrl
+            checked={donated.includes(entry.id)}
+            onCheckedChanged={(d) => setDonated(entry.id, d)}
+            label={
+                lang.entryType[entry.type] + " " + generalLangProxy(entry.name)
+            }
+            sublabel={`${entry.price || 0} 💰`}
+            secondary={formatAvailabilityTimes(
+                entry.northernMonths,
+                entry.hours
+            )}
+        />
+    );
+}
+
 function FossilCtrl({ entry }) {
     const { donated, setDonated } = useCollection();
     return (
@@ -109,6 +127,8 @@ export default function EntryCtrl({ entry }) {
         case "FISH":
         case "BUG":
             return <FishInsectCtrl entry={entry} />;
+        case "SEACREATURE":
+            return <SeaCreatureCtrl entry={entry} />;
         case "FOSSIL":
             return <FossilCtrl entry={entry} />;
         case "ART":

@@ -20,6 +20,11 @@ export default function StatsCtrl({ ...rest }) {
             </span>
             <span className="seperator" />
             <span>
+                {lang.entryType.SEACREATURE} {stats.seaCreatures.donated} /{" "}
+                {stats.seaCreatures.all}
+            </span>
+            <span className="seperator" />
+            <span>
                 {lang.entryType.ART} {stats.art.donated} / {stats.art.all}
             </span>
         </div>

@@ -7,6 +7,7 @@ export const filters = {
     currentMonth: "CURRENT_MONTH",
     showBugs: "SHOW_BUGS",
     showFish: "SHOW_FISH",
+    showSeaCreatures: "SHOW_SEACREATURES",
     showFossils: "SHOW_FOSSILS",
     showArt: "SHOW_ART",
 };
@@ -58,6 +59,9 @@ export function applyFiltersToData(filterSet, currentTime, donatedItems) {
 
     if (!filterSet.includes(filters.showFish))
         collection = collection.filter((entry) => entry.type !== "FISH");
+
+    if (!filterSet.includes(filters.showSeaCreatures))
+        collection = collection.filter((entry) => entry.type !== "SEACREATURE");
 
     if (!filterSet.includes(filters.showFossils))
         collection = collection.filter((entry) => entry.type !== "FOSSIL");

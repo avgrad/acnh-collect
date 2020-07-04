@@ -15,6 +15,7 @@ export default function FilterSortCtrl({ ...rest }) {
                 <div>
                     <FilterCheckbox filter={filters.showBugs} />
                     <FilterCheckbox filter={filters.showFish} />
+                    <FilterCheckbox filter={filters.showSeaCreatures} />
                     <FilterCheckbox filter={filters.showFossils} />
                     <FilterCheckbox filter={filters.showArt} />
                 </div>

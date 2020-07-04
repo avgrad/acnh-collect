@@ -113,6 +113,10 @@ const languageResources = {
         en: "Flowers (white)",
         de: "Blumen (weiß)",
     },
+    DIVING: {
+        en: "Diving",
+        de: "Tauchen",
+    },
 };
 
 const languageResourceProxy = new Proxy(languageResources, {
