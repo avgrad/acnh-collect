@@ -112,7 +112,7 @@ const collectionData = [
             m.nov,
             m.dec,
         ],
-        hours: [0, 1, 2, 3, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+        hours: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 23],
     },
     {
         id: "e9gew0qoq4r",
@@ -4495,7 +4495,7 @@ const collectionData = [
         location: "TREE",
         northernMonths: [m.jul, m.aug],
         souternMonths: [m.jul, m.aug],
-        hours: [4, 5, 6, 7],
+        hours: [4, 5, 6, 7, 16, 17, 18],
     },
     {
         id: "x0s1ueozc9",
