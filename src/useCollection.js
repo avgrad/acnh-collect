@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useMemo } from "react";
-import collectionData from "./collectionData";
-import useCurrentTime from "./helpers/useCurrentTime";
+import collectionData, { months } from "./collectionData";
+import { useCurrentMonth, useCurrentHour } from "./helpers/useCurrentTime";
 import { applyFiltersToData, filters } from "./filters";
 import { applySortToData } from "./sort";
 import useFilter from "./useFilter";
@@ -24,15 +24,20 @@ export const useCollection = () => {
 };
 
 export const Provider = ({ children }) => {
-    const currentTime = useCurrentTime();
+    const currentMonth = months[useCurrentMonth()];
+    const currentHour = useCurrentHour();
     const [activeFilterSet, setFilter] = useFilter(defaultFilters);
     const sort = useSort("NAME", "ASC");
     const [donated, setDonated] = useDonationStorage();
-    const filteredCollection = applyFiltersToData(
-        // TODO memoize based on day and hour
-        activeFilterSet,
-        currentTime,
-        donated
+    const filteredCollection = useMemo(
+        () =>
+            applyFiltersToData(
+                activeFilterSet,
+                currentMonth,
+                currentHour,
+                donated
+            ),
+        [activeFilterSet, currentMonth, currentHour, donated]
     );
     const displayedCollection = useMemo(
         () => applySortToData(filteredCollection, sort.field, sort.direction),

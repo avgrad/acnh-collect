@@ -1,4 +1,4 @@
-import collectionData, { months } from "./collectionData";
+import collectionData from "./collectionData";
 
 export const filters = {
     collected: "COLLECTED",
@@ -12,26 +12,29 @@ export const filters = {
     showArt: "SHOW_ART",
 };
 
-function filterForAvailabilityAtTime(currentDate) {
+function filterForAvailabilityAtTime(currentHour) {
     return (entry) => {
         const availableHours = entry.hours;
-        const currentHour = currentDate.getHours();
         if (availableHours != null) return availableHours.includes(currentHour);
         return true;
     };
 }
 
-function filterForAvailabilityAtMonth(currentDate) {
+function filterForAvailabilityAtMonth(currentMonth) {
     return (entry) => {
         const availableMonths = entry.northernMonths;
-        const currentMonth = months[currentDate.getMonth()];
         if (availableMonths != null)
             return availableMonths.includes(currentMonth);
         return true;
     };
 }
 
-export function applyFiltersToData(filterSet, currentTime, donatedItems) {
+export function applyFiltersToData(
+    filterSet,
+    currentMonth,
+    currentHour,
+    donatedItems
+) {
     let collection = collectionData;
 
     if (!filterSet.includes(filters.collected))
@@ -46,12 +49,12 @@ export function applyFiltersToData(filterSet, currentTime, donatedItems) {
 
     if (filterSet.includes(filters.currentTime))
         collection = collection.filter(
-            filterForAvailabilityAtTime(currentTime)
+            filterForAvailabilityAtTime(currentHour)
         );
 
     if (filterSet.includes(filters.currentMonth))
         collection = collection.filter(
-            filterForAvailabilityAtMonth(currentTime)
+            filterForAvailabilityAtMonth(currentMonth)
         );
 
     if (!filterSet.includes(filters.showBugs))

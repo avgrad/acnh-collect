@@ -4,8 +4,11 @@ import lang, { generalLangProxy } from "./resources";
 import {
     getTimeRanges,
     getMonthRanges,
+    willLeaveThisMonth,
+    willLeaveThisHour,
 } from "./helpers/availabilityTimeHelpers";
 import CheckBox from "./CheckBox";
+import { useCurrentMonth, useCurrentHour } from "./helpers/useCurrentTime";
 
 function formatAvailabilityTimes(months, hours) {
     const ms = getMonthRanges(months)
@@ -32,15 +35,35 @@ function formatAvailabilityTimes(months, hours) {
     return ms + " — " + hs;
 }
 
+const clockEmojis = [
+    "🕛",
+    "🕐",
+    "🕑",
+    "🕒",
+    "🕓",
+    "🕔",
+    "🕕",
+    "🕖",
+    "🕗",
+    "🕘",
+    "🕙",
+    "🕚",
+];
+
 function BasicEntryCtrl({
     checked,
     onCheckedChanged,
     label,
     sublabel,
     secondary,
+    leavingThisMonth,
+    leavingThisHour,
 }) {
+    const currentHour = useCurrentHour();
+    const className =
+        "entry " + (leavingThisMonth || leavingThisHour ? "leaving" : "");
     return (
-        <div className="entry">
+        <div className={className}>
             <CheckBox
                 checked={checked}
                 onChange={(e) => onCheckedChanged(e.currentTarget.checked)}
@@ -51,6 +74,28 @@ function BasicEntryCtrl({
                 {secondary && (
                     <small className="secondary"> &mdash; {secondary}</small>
                 )}
+                {(leavingThisMonth || leavingThisHour) && (
+                    <small>
+                        {" "}
+                        &mdash;{" "}
+                        {leavingThisMonth && (
+                            <span
+                                role="img"
+                                title={lang.availability.LEAVING_MONTH}
+                                aria-label="Calendar-Emoji">
+                                📆
+                            </span>
+                        )}
+                        {leavingThisHour && (
+                            <span
+                                role="img"
+                                title={lang.availability.LEAVING_HOUR}
+                                aria-label="Clock-Emoji">
+                                {clockEmojis[currentHour % 12]}
+                            </span>
+                        )}
+                    </small>
+                )}
             </div>
         </div>
     );
@@ -58,6 +103,8 @@ function BasicEntryCtrl({
 
 function FishInsectCtrl({ entry }) {
     const { donated, setDonated } = useCollection();
+    const currentMonth = useCurrentMonth();
+    const currentHour = useCurrentHour();
     return (
         <BasicEntryCtrl
             checked={donated.includes(entry.id)}
@@ -72,12 +119,19 @@ function FishInsectCtrl({ entry }) {
                 entry.northernMonths,
                 entry.hours
             )}
+            leavingThisMonth={willLeaveThisMonth(
+                entry.northernMonths,
+                currentMonth
+            )}
+            leavingThisHour={willLeaveThisHour(entry.hours, currentHour)}
         />
     );
 }
 
 function SeaCreatureCtrl({ entry }) {
     const { donated, setDonated } = useCollection();
+    const currentMonth = useCurrentMonth();
+    const currentHour = useCurrentHour();
     return (
         <BasicEntryCtrl
             checked={donated.includes(entry.id)}
@@ -90,6 +144,11 @@ function SeaCreatureCtrl({ entry }) {
                 entry.northernMonths,
                 entry.hours
             )}
+            leavingThisMonth={willLeaveThisMonth(
+                entry.northernMonths,
+                currentMonth
+            )}
+            leavingThisHour={willLeaveThisHour(entry.hours, currentHour)}
         />
     );
 }

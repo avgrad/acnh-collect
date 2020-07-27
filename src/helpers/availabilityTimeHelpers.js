@@ -86,3 +86,15 @@ export function getTimeRanges(hours) {
         ...allDay,
     }));
 }
+
+export function willLeaveThisMonth(months, currentMonth) {
+    const nextMonth = baseMonths[(currentMonth + 1) % 12];
+    return (
+        months.includes(baseMonths[currentMonth]) && !months.includes(nextMonth)
+    );
+}
+
+export function willLeaveThisHour(hours, currentHour) {
+    const nextHour = (currentHour + 1) % 24;
+    return hours.includes(currentHour) && !hours.includes(nextHour);
+}

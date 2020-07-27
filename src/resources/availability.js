@@ -65,6 +65,14 @@ const languageResources = {
         en: "all year",
         de: "ganzjährig",
     },
+    LEAVING_MONTH: {
+        en: "leaving this month",
+        de: "nur noch diesen Monat",
+    },
+    LEAVING_HOUR: {
+        en: "leaving this hour",
+        de: "nur noch diese Stunde",
+    },
 };
 
 const languageResourceProxy = new Proxy(languageResources, {

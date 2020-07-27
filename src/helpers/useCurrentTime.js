@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 
 // based on https://overreacted.io/making-setinterval-declarative-with-react-hooks/
-function useClock(callback) {
+function useClock(callback, interval = 1000) {
     const savedCallback = useRef();
 
     useEffect(() => {
@@ -12,15 +12,25 @@ function useClock(callback) {
         function tick() {
             savedCallback.current(new Date());
         }
-        const id = setTimeout(tick, 1000 - (Date.now() % 1000));
+        const id = setTimeout(tick, interval - (Date.now() % interval));
         return () => clearTimeout(id);
     });
 }
 
 export default function useCurrentTime() {
     const [currentTime, setCurrentTime] = useState(new Date());
-
     useClock((d) => setCurrentTime(d));
-
     return currentTime;
+}
+
+export function useCurrentMonth() {
+    const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+    useClock((d) => setCurrentMonth(d.getMonth()), 60 * 60 * 1000);
+    return currentMonth;
+}
+
+export function useCurrentHour() {
+    const [currentHour, setCurrentHour] = useState(new Date().getHours());
+    useClock((d) => setCurrentHour(d.getHours()), 60 * 60 * 1000);
+    return currentHour;
 }
