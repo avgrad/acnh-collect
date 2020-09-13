@@ -6,7 +6,7 @@ import lang from "./resources";
 import useCurrentTime from "./helpers/useCurrentTime";
 import FilterSortCtrl from "./FilterSortCtrl";
 import StatsCtrl from "./StatsCtrl";
-import ListDisplayCtrl from "./ListDisplayCtrl";
+import { ListDisplayCtrl, GridDisplayCtrl } from "./ListDisplayCtrl";
 
 function useServiceWorkerInstalled() {
     const [hasUpdateInstalled, setUpdated] = useState(false);
@@ -42,7 +42,7 @@ export default function App() {
             <hr />
             <StatsCtrl />
             <hr />
-            <ListDisplayCtrl />
+            <GridDisplayCtrl />
             <footer>
                 Source on{" "}
                 <a
