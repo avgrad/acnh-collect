@@ -18,6 +18,7 @@
     background-color: var(--expansion-panel-head-background);
     margin: 0; /* move margin to bottom, to get a continous background fill up to expansion-panel borderand keep positioning */
     border: calc(0.5 * var(--toolbar-gutter)) solid transparent;
+    height: unset;
 }
 
 /* Create the checkmark */
