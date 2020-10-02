@@ -15,12 +15,12 @@ function formatAvailabilityTimes(months, hours) {
         rng.allYear
             ? lang.availability.ALL_YEAR
             : rng.from === rng.to
-            ? lang.availability[rng.from]
-            : lang.availability[rng.from] +
+            ? lang.availabilityShort[rng.from]
+            : lang.availabilityShort[rng.from] +
               " " +
               lang.availability.TO +
               " " +
-              lang.availability[rng.to]
+              lang.availabilityShort[rng.to]
     );
     const hs = getTimeRanges(hours).map((rng) =>
         rng.allDay
