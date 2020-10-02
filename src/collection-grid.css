@@ -20,12 +20,9 @@
 
 .collection-grid-entry {
     background-color: var(--entry-background-color);
-    flex-grow: 0;
+    flex-grow: 1;
     flex-shrink: 0;
     flex-basis: 11rem;
-    /*width: 11rem; /* expected, so header does not grow entry with long name */
-
-    height: 10rem;
     overflow: hidden;
     border-radius: 0.5rem;
     position: relative;
@@ -33,24 +30,40 @@
     grid-auto-rows: auto 1fr;
 }
 
+@media (min-width: 600px) {
+    .collection-grid-entry {
+        max-width: 13rem;
+    }
+}
+
 .collection-grid .checkbox {
     margin: 0;
 }
 
 .collection-grid-entry-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
     padding: 0.5rem;
     background: var(--entry-header-background-color);
     font-weight: bold;
-    overflow: hidden;
+}
 
-    white-space: nowrap; /* TODO sommmmme names overflow */
+.collection-grid-entry-header .entry-label {
+    line-height: 1em;
+    margin: calc(0.5 * var(--toolbar-gutter));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .collection-grid-entry-content {
-    background-repeat: no-repeat;
-    background-size: contain; /* contain or cover */
-    background-position: center;
     margin: 0.5em;
+    margin-bottom: 3rem; /* keep SOME but not all space for info-tags */
+}
+
+.collection-grid-entry-content img {
+    max-width: 100%;
 }
 
 .collection-grid-entry-additional-info {

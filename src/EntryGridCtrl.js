@@ -9,30 +9,26 @@ import {
     willLeaveThisHour,
 } from "./helpers/availabilityTimeHelpers";
 
-// duplicate with EntryCtrl.js
+// duplicate from EntryCtrl.js (but changed)
 function formatAvailabilityTimes(months, hours) {
-    const ms = getMonthRanges(months)
-        .map((rng) =>
-            rng.allYear
-                ? lang.availability.ALL_YEAR
-                : rng.from === rng.to
-                ? lang.availability[rng.from]
-                : lang.availability[rng.from] +
-                  " " +
-                  lang.availability.TO +
-                  " " +
-                  lang.availability[rng.to]
-        )
-        .join(", ");
-    const hs = getTimeRanges(hours)
-        .map((rng) =>
-            rng.allDay
-                ? lang.availability.ALL_DAY
-                : rng.from + "-" + rng.to + " " + lang.availability.CLOCK
-        )
-        .join(", ");
+    const ms = getMonthRanges(months).map((rng) =>
+        rng.allYear
+            ? lang.availability.ALL_YEAR
+            : rng.from === rng.to
+            ? lang.availability[rng.from]
+            : lang.availability[rng.from] +
+              " " +
+              lang.availability.TO +
+              " " +
+              lang.availability[rng.to]
+    );
+    const hs = getTimeRanges(hours).map((rng) =>
+        rng.allDay
+            ? lang.availability.ALL_DAY
+            : rng.from + "-" + rng.to + " " + lang.availability.CLOCK
+    );
 
-    if (hs && ms) return ms + " — " + hs;
+    if (ms && hs) return ms.concat(hs);
 
     return ms || hs;
 }
@@ -57,12 +53,11 @@ export default function EntryGridCtrl({
                 <CheckBox
                     checked={donated.includes(id)}
                     onChange={(e) => setDonated(id, e.currentTarget.checked)}
-                    label={generalLangProxy(name)}
                 />
+                <div className="entry-label">{generalLangProxy(name)}</div>
             </div>
-            <div
-                className="collection-grid-entry-content"
-                style={{ backgroundImage: "url(" + img + ")" }}>
+            <div className="collection-grid-entry-content">
+                <img src={img} alt={generalLangProxy(name)} />
                 <div className="collection-grid-entry-additional-info">
                     <span>{lang.entryType[type]}</span>
 
@@ -76,28 +71,26 @@ export default function EntryGridCtrl({
                             {price && (
                                 <span>
                                     {price}{" "}
-                                    <span role="img" aria-label="Sternis">
+                                    <span
+                                        role="img"
+                                        aria-label="Sternis // TODO translate">
                                         💰
                                     </span>
                                 </span>
                             )}
                             {location && <span>{lang.location[location]}</span>}
 
-                            {hours && (
-                                <span
-                                    className={
-                                        Math.random() < 0.5 ? "highlight" : ""
-                                    }>
-                                    {formatAvailabilityTimes(null, hours)}
-                                </span>
-                            )}
-                            {northernMonths && (
-                                <span
-                                    className={
-                                        Math.random() < 0.5 ? "highlight" : ""
-                                    }>
-                                    {formatAvailabilityTimes(northernMonths)}
-                                </span>
+                            {formatAvailabilityTimes(northernMonths, hours).map(
+                                (h) => (
+                                    <span
+                                        className={
+                                            Math.random() < 0.5
+                                                ? "highlight"
+                                                : ""
+                                        }>
+                                        {h}
+                                    </span>
+                                )
                             )}
                         </>
                     )}
