@@ -88,6 +88,8 @@ export function getTimeRanges(hours) {
 }
 
 export function willLeaveThisMonth(months, currentMonth) {
+    if (!months) return null;
+
     const nextMonth = baseMonths[(currentMonth + 1) % 12];
     return (
         months.includes(baseMonths[currentMonth]) && !months.includes(nextMonth)
@@ -95,6 +97,8 @@ export function willLeaveThisMonth(months, currentMonth) {
 }
 
 export function willLeaveThisHour(hours, currentHour) {
+    if (!hours) return null;
+
     const nextHour = (currentHour + 1) % 24;
     return hours.includes(currentHour) && !hours.includes(nextHour);
 }

@@ -2,6 +2,7 @@ import React from "react";
 import CheckBox from "./CheckBox";
 import lang, { generalLangProxy } from "./resources";
 import { useCollection } from "./useCollection";
+import { useCurrentHour, useCurrentMonth } from "./helpers/useCurrentTime";
 import {
     getTimeRanges,
     getMonthRanges,
@@ -11,22 +12,26 @@ import {
 
 // duplicate from EntryCtrl.js (but changed)
 function formatAvailabilityTimes(months, hours) {
-    const ms = getMonthRanges(months).map((rng) =>
-        rng.allYear
-            ? lang.availability.ALL_YEAR
-            : rng.from === rng.to
-            ? lang.availabilityShort[rng.from]
-            : lang.availabilityShort[rng.from] +
-              " " +
-              lang.availability.TO +
-              " " +
-              lang.availabilityShort[rng.to]
-    );
-    const hs = getTimeRanges(hours).map((rng) =>
-        rng.allDay
-            ? lang.availability.ALL_DAY
-            : rng.from + "-" + rng.to + " " + lang.availability.CLOCK
-    );
+    const ms = getMonthRanges(months)
+        .map((rng) =>
+            rng.allYear
+                ? lang.availability.ALL_YEAR
+                : rng.from === rng.to
+                ? lang.availabilityShort[rng.from]
+                : lang.availabilityShort[rng.from] +
+                  " " +
+                  lang.availability.TO +
+                  " " +
+                  lang.availabilityShort[rng.to]
+        )
+        .map((text) => ({ text, type: "MONTH" }));
+    const hs = getTimeRanges(hours)
+        .map((rng) =>
+            rng.allDay
+                ? lang.availability.ALL_DAY
+                : rng.from + "-" + rng.to + " " + lang.availability.CLOCK
+        )
+        .map((text) => ({ text, type: "TIME" }));
 
     if (ms && hs) return ms.concat(hs);
 
@@ -46,6 +51,10 @@ export default function EntryGridCtrl({
     fakeInfo,
 }) {
     const { donated, setDonated } = useCollection();
+    const currentHour = useCurrentHour();
+    const currentMonth = useCurrentMonth();
+    const leavingThisMonth = willLeaveThisMonth(northernMonths, currentMonth);
+    const leavingThisHour = willLeaveThisHour(hours, currentHour);
 
     return (
         <div className="collection-grid-entry" data-id={id}>
@@ -81,14 +90,18 @@ export default function EntryGridCtrl({
                             {location && <span>{lang.location[location]}</span>}
 
                             {formatAvailabilityTimes(northernMonths, hours).map(
-                                (h) => (
+                                (availability) => (
                                     <span
                                         className={
-                                            Math.random() < 0.5
+                                            (leavingThisMonth &&
+                                                availability.type ===
+                                                    "MONTH") ||
+                                            (leavingThisHour &&
+                                                availability.type === "TIME")
                                                 ? "highlight"
                                                 : ""
                                         }>
-                                        {h}
+                                        {availability.text}
                                     </span>
                                 )
                             )}
