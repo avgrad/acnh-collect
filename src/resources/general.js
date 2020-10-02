@@ -15,6 +15,10 @@ const languageResources = {
         en: "Filter & Sorting",
         de: "Filter & Sortierung",
     },
+    BELLS: {
+        en: "Bells",
+        de: "Sternis",
+    },
 };
 
 const languageResourceProxy = new Proxy(languageResources, {

@@ -73,7 +73,7 @@ export default function EntryGridCtrl({
                                     {price}{" "}
                                     <span
                                         role="img"
-                                        aria-label="Sternis // TODO translate">
+                                        aria-label={lang.general.BELLS}>
                                         💰
                                     </span>
                                 </span>
