@@ -9,6 +9,7 @@ import {
     willLeaveThisMonth,
     willLeaveThisHour,
 } from "./helpers/availabilityTimeHelpers";
+import { mappingIdToFilename } from "./collectionDataAcnhApiMapping";
 
 // duplicate from EntryCtrl.js (but changed)
 function formatAvailabilityTimes(months, hours) {
@@ -42,8 +43,7 @@ export default function EntryGridCtrl({
     id,
     type,
     name,
-    img = "https://acnhapi.com/v1/images/fish/" +
-        Math.floor(1 + Math.random() * 80),
+    //img = "https://acnhapi.com/v1/images/fish/7",
     price,
     location,
     hours,
@@ -55,6 +55,15 @@ export default function EntryGridCtrl({
     const currentMonth = useCurrentMonth();
     const leavingThisMonth = willLeaveThisMonth(northernMonths, currentMonth);
     const leavingThisHour = willLeaveThisHour(hours, currentHour);
+    const apiType = {
+        BUG: "bugs", // 600x600
+        FISH: "fish", // 1024x512
+        SEACREATURE: "sea", // 640x640
+        FOSSIL: "fossils", // 128x128
+        ART: "art", // 128x128
+    }[type];
+    const fileName = mappingIdToFilename[id] || id;
+    const img = "https://acnhapi.com/v1/images/" + apiType + "/" + fileName;
 
     return (
         <div className="collection-grid-entry" data-id={id}>
