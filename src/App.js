@@ -53,6 +53,23 @@ export default function App() {
                 </a>{" "}
                 &mdash; Hosting via GitHub Pages &mdash; Version{" "}
                 {process.env.REACT_APP_VERSION}
+                <br />
+                <small>
+                    DISCLAIMER: This is a fan made site that claims no ownership
+                    of any intellectual property that is displayed. Entry images
+                    are property of Nintendo, and are used only for
+                    non-commercial and educational purpose.
+                </small>
+                <br />
+                <small>
+                    Image Hosting:{" "}
+                    <a
+                        href="https://acnhapi.com/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        ACNH API
+                    </a>
+                </small>
             </footer>
         </CollectionProvider>
     );
