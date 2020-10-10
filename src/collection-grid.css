@@ -18,7 +18,7 @@
     gap: 1rem;
 }
 
-.collection-grid-entry {
+.collection-grid .entry {
     background-color: var(--entry-background-color);
     flex: 0 0 13rem; /* <flex-grow> <flex-shrink> <flex-basis> */
     overflow: hidden;
@@ -30,7 +30,7 @@
 
 @media (max-width: 43rem) {
     /* 688px / three columns */
-    .collection-grid-entry {
+    .collection-grid .entry {
         flex: 1 0 11rem; /* <flex-grow> <flex-shrink> <flex-basis> */
     }
 }
@@ -39,7 +39,7 @@
     margin: 0;
 }
 
-.collection-grid-entry-header {
+.collection-grid .entry-header {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
@@ -48,7 +48,7 @@
     font-weight: bold;
 }
 
-.collection-grid-entry-header .entry-label {
+.collection-grid .entry-header .entry-label {
     line-height: 1em;
     margin: calc(0.5 * var(--toolbar-gutter));
     white-space: nowrap;
@@ -56,19 +56,19 @@
     text-overflow: ellipsis;
 }
 
-.collection-grid-entry-content {
+.collection-grid .entry-content {
     margin: 0.5em;
     margin-bottom: 3rem; /* keep SOME but not all space for info-tags */
 }
 
-.collection-grid-entry-content img {
+.collection-grid .entry-content img {
     display: block;
     margin: 0 auto;
     max-width: 100%;
     max-height: 7rem;
 }
 
-.collection-grid-entry-additional-info {
+.collection-grid .entry-additional-info {
     position: absolute;
     display: flex;
     flex-flow: row-reverse wrap-reverse;
@@ -81,7 +81,7 @@
     line-height: 1.3em;
 }
 
-.collection-grid-entry-additional-info span:not([role="img"]) {
+.collection-grid .entry-additional-info span:not([role="img"]) {
     display: inline-block;
     padding: 0.3em 0.5em;
     border-radius: 0.3em;
@@ -89,16 +89,14 @@
     color: rgba(255, 255, 255, 1);
 }
 
-.collection-grid-entry-additional-info span:not([role="img"]).highlight {
+.collection-grid .entry-additional-info span:not([role="img"]).highlight {
     background: rgba(100, 100, 0, 0.8);
 }
 
-.collection-grid-entry-additional-info span.hover-only {
+.collection-grid .entry-additional-info span.hover-only {
     display: none;
 }
 
-.collection-grid-entry:hover
-    .collection-grid-entry-additional-info
-    span.hover-only {
+.collection-grid .entry:hover .entry-additional-info span.hover-only {
     display: inline-block;
 }

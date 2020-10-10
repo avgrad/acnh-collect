@@ -40,17 +40,17 @@ export default function EntryGridCtrl({
     const img = "https://acnhapi.com/v1/images/" + apiType + "/" + fileName;
 
     return (
-        <div className="collection-grid-entry" data-id={id}>
-            <div className="collection-grid-entry-header">
+        <div className="entry" data-id={id}>
+            <div className="entry-header">
                 <CheckBox
                     checked={donated.includes(id)}
                     onChange={(e) => setDonated(id, e.currentTarget.checked)}
                 />
                 <div className="entry-label">{generalLangProxy(name)}</div>
             </div>
-            <div className="collection-grid-entry-content">
+            <div className="entry-content">
                 <img src={img} alt={generalLangProxy(name)} />
-                <div className="collection-grid-entry-additional-info">
+                <div className="entry-additional-info">
                     <span>{lang.entryType[type]}</span>
 
                     {fakeInfo ? (
