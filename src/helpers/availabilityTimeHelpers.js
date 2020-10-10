@@ -1,4 +1,5 @@
 import { months as baseMonths } from "./../collectionData";
+import lang from "./../resources";
 
 export function getMonthRanges(months) {
     if (!months) return []; // null or [] ?
@@ -101,4 +102,32 @@ export function willLeaveThisHour(hours, currentHour) {
 
     const nextHour = (currentHour + 1) % 24;
     return hours.includes(currentHour) && !hours.includes(nextHour);
+}
+
+export function humanReadableAvailabilityTimes(months, hours, short = false) {
+    const langSource = short ? lang.availabilityShort : lang.availability;
+    const ms = getMonthRanges(months)
+        .map((rng) =>
+            rng.allYear
+                ? lang.availability.ALL_YEAR
+                : rng.from === rng.to
+                ? langSource[rng.from]
+                : langSource[rng.from] +
+                  " " +
+                  lang.availability.TO +
+                  " " +
+                  langSource[rng.to]
+        )
+        .map((text) => ({ text, type: "MONTH" }));
+    const hs = getTimeRanges(hours)
+        .map((rng) =>
+            rng.allDay
+                ? lang.availability.ALL_DAY
+                : rng.from + "-" + rng.to + " " + lang.availability.CLOCK
+        )
+        .map((text) => ({ text, type: "TIME" }));
+
+    if (ms && hs) return ms.concat(hs);
+
+    return ms || hs;
 }
