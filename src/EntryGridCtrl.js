@@ -40,15 +40,17 @@ function formatAvailabilityTimes(months, hours) {
 }
 
 export default function EntryGridCtrl({
-    id,
-    type,
-    name,
-    //img = "https://acnhapi.com/v1/images/fish/7",
-    price,
-    location,
-    hours,
-    northernMonths,
-    fakeInfo,
+    entry: {
+        id,
+        type,
+        name,
+        //img = "https://acnhapi.com/v1/images/fish/7",
+        price,
+        location,
+        hours,
+        northernMonths,
+        fakeInfo,
+    },
 }) {
     const { donated, setDonated } = useCollection();
     const currentHour = useCurrentHour();

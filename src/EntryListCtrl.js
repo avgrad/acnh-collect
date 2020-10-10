@@ -181,7 +181,7 @@ function ArtCtrl({ entry }) {
     );
 }
 
-export default function EntryCtrl({ entry }) {
+export default function EntryListCtrl({ entry }) {
     switch (entry.type) {
         case "FISH":
         case "BUG":
