@@ -1,0 +1,43 @@
+:root {
+    --leaving-background-color: rgba(255, 255, 100, 0.5);
+}
+
+/* @media (prefers-color-scheme: light) { */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --leaving-background-color: rgba(255, 255, 0, 0.15);
+    }
+}
+
+.collection-list .no-matches {
+    text-align: center;
+}
+
+.collection-list .entry {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.collection-list .entry.leaving {
+    background-color: var(--leaving-background-color);
+}
+
+.collection-list .entry .entry-label {
+    line-height: 1em;
+    margin: calc(0.5 * var(--toolbar-gutter));
+}
+
+.collection-list .entry small {
+    font-size: 0.8em;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+.collection-list .entry .secondary {
+    display: none;
+}
+
+.collection-list .entry:hover .secondary {
+    display: inline;
+}

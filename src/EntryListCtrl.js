@@ -1,4 +1,5 @@
 import React from "react";
+import "./collection-list.css";
 import { useCollection } from "./useCollection";
 import lang, { generalLangProxy } from "./resources";
 import {

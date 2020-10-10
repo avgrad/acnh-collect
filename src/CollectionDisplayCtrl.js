@@ -3,7 +3,6 @@ import lang from "./resources";
 import { useCollection } from "./useCollection";
 import EntryListCtrl from "./EntryListCtrl";
 import EntryGridCtrl from "./EntryGridCtrl";
-import "./collection-grid.css";
 import { Layouts, useCollectionLayout } from "./useCollectionLayout";
 
 export function CollectionDisplayCtrl() {

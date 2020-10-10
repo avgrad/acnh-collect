@@ -1,4 +1,5 @@
 import React from "react";
+import "./collection-grid.css";
 import CheckBox from "./CheckBox";
 import lang, { generalLangProxy } from "./resources";
 import { useCollection } from "./useCollection";
