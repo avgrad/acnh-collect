@@ -5,7 +5,7 @@ import EntryListCtrl from "./EntryListCtrl";
 import EntryGridCtrl from "./EntryGridCtrl";
 import { Layouts, useCollectionLayout } from "./useCollectionLayout";
 
-export function CollectionDisplayCtrl() {
+export default function CollectionDisplayCtrl() {
     const { currentLayout } = useCollectionLayout();
     const { displayedCollection } = useCollection();
     const EntryDisplayCtrl = {

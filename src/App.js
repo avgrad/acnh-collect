@@ -11,7 +11,7 @@ import lang from "./resources";
 import useCurrentTime from "./helpers/useCurrentTime";
 import FilterSortCtrl from "./FilterSortCtrl";
 import StatsCtrl from "./StatsCtrl";
-import { CollectionDisplayCtrl } from "./CollectionDisplayCtrl";
+import CollectionDisplayCtrl from "./CollectionDisplayCtrl";
 import RadioSelect from "./RadioSelect";
 
 function useServiceWorkerInstalled() {
