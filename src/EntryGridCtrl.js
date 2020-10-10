@@ -54,8 +54,7 @@ export default function EntryGridCtrl({
                     <span>{lang.entryType[type]}</span>
 
                     {fakeInfo ? (
-                        <span
-                            className={Math.random() < 0.4 ? "hover-only" : ""}>
+                        <span className="hover-only">
                             {generalLangProxy(fakeInfo)}
                         </span>
                     ) : (
