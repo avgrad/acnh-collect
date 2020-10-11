@@ -57,6 +57,10 @@ ul.stats li {
     margin: 0 0.5rem;
 }
 
+ul.stats li .divider {
+    opacity: 0.6;
+}
+
 .collection-list .no-matches {
     text-align: center;
 }
