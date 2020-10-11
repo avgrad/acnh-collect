@@ -43,14 +43,18 @@ h2 {
     cursor: pointer;
 }
 
-.stats {
+ul.stats {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
 }
 
-.stats .seperator {
-    border-left: 1px solid var(--main-font-color);
+ul.stats li {
+    margin: 0 0.5rem;
 }
 
 .collection-list .no-matches {
