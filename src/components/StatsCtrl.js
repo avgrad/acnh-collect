@@ -1,6 +1,6 @@
 import React from "react";
-import { useCollection } from "./useCollection";
-import lang from "./resources";
+import { useCollection } from "./../useCollection";
+import lang from "./../resources";
 
 function StatCounter({ label, donated, all }) {
     return (

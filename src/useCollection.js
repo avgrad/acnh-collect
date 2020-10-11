@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useMemo } from "react";
-import collectionData, { months } from "./collectionData";
+import collectionData, { months } from "./data/collectionData";
 import { useCurrentMonth, useCurrentHour } from "./helpers/useCurrentTime";
-import { applyFiltersToData, filters } from "./filters";
-import { applySortToData } from "./sort";
-import useFilter from "./useFilter";
-import useSort from "./useSort";
+import { applyFiltersToData, filters } from "./data/filters";
+import { applySortToData } from "./data/sort";
+import useFilter from "./data/useFilter";
+import useSort from "./data/useSort";
 import useDonationStorage from "./useDonationStorage";
 
 const defaultFilters = [

@@ -1,9 +1,9 @@
 import React from "react";
-import lang from "./resources";
-import { useCollection } from "./useCollection";
+import lang from "./../resources";
+import { useCollection } from "./../useCollection";
 import EntryListCtrl from "./EntryListCtrl";
 import EntryGridCtrl from "./EntryGridCtrl";
-import { Layouts, useCollectionLayout } from "./useCollectionLayout";
+import { Layouts, useCollectionLayout } from "./../useCollectionLayout";
 
 export default function CollectionDisplayCtrl() {
     const { currentLayout } = useCollectionLayout();

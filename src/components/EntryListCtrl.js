@@ -1,14 +1,14 @@
 import React from "react";
 import "./collection-list.css";
-import { useCollection } from "./useCollection";
-import lang, { generalLangProxy } from "./resources";
+import { useCollection } from "./../useCollection";
+import lang, { generalLangProxy } from "./../resources";
 import {
     willLeaveThisMonth,
     willLeaveThisHour,
     humanReadableAvailabilityTimes,
-} from "./helpers/availabilityTimeHelpers";
+} from "./../helpers/availabilityTimeHelpers";
 import CheckBox from "./CheckBox";
-import { useCurrentMonth, useCurrentHour } from "./helpers/useCurrentTime";
+import { useCurrentMonth, useCurrentHour } from "./../helpers/useCurrentTime";
 
 function formatAvailabilityTimes(months, hours) {
     const formatted = humanReadableAvailabilityTimes(months, hours);

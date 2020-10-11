@@ -1,4 +1,4 @@
-import { months as baseMonths } from "./../collectionData";
+import { months as baseMonths } from "./../data/collectionData";
 import lang from "./../resources";
 
 export function getMonthRanges(months) {

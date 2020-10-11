@@ -1,8 +1,8 @@
 import React from "react";
-import { useCollection } from "./useCollection";
-import lang from "./resources";
-import { filters } from "./filters";
-import { sortFields, sortDirections } from "./sort";
+import { useCollection } from "./../useCollection";
+import lang from "./../resources";
+import { filters } from "./../data/filters";
+import { sortFields, sortDirections } from "./../data/sort";
 import ExpansionPanel from "./ExpansionPanel";
 import FilterCheckbox from "./FilterCheckbox";
 import RadioSelect from "./RadioSelect";

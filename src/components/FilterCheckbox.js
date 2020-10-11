@@ -1,7 +1,7 @@
 import React from "react";
-import { useCollection } from "./useCollection";
+import { useCollection } from "./../useCollection";
 import CheckBox from "./CheckBox";
-import lang from "./resources";
+import lang from "./../resources";
 
 export default function FilterCheckbox({ filter }) {
     const { activeFilterSet, setFilter } = useCollection();

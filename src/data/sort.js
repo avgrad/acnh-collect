@@ -1,4 +1,4 @@
-import { generalLangProxy } from "./resources";
+import { generalLangProxy } from "./../resources";
 
 const sortFunctions = {
     NAME: (a, b) =>

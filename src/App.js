@@ -9,10 +9,10 @@ import {
 } from "./useCollectionLayout";
 import lang from "./resources";
 import useCurrentTime from "./helpers/useCurrentTime";
-import FilterSortCtrl from "./FilterSortCtrl";
-import StatsCtrl from "./StatsCtrl";
-import CollectionDisplayCtrl from "./CollectionDisplayCtrl";
-import RadioSelect from "./RadioSelect";
+import FilterSortCtrl from "./components/FilterSortCtrl";
+import StatsCtrl from "./components/StatsCtrl";
+import CollectionDisplayCtrl from "./components/CollectionDisplayCtrl";
+import RadioSelect from "./components/RadioSelect";
 
 function useServiceWorkerInstalled() {
     const [hasUpdateInstalled, setUpdated] = useState(false);

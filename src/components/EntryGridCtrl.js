@@ -1,15 +1,15 @@
 import React from "react";
 import "./collection-grid.css";
 import CheckBox from "./CheckBox";
-import lang, { generalLangProxy } from "./resources";
-import { useCollection } from "./useCollection";
-import { useCurrentHour, useCurrentMonth } from "./helpers/useCurrentTime";
+import lang, { generalLangProxy } from "./../resources";
+import { useCollection } from "./../useCollection";
+import { useCurrentHour, useCurrentMonth } from "./../helpers/useCurrentTime";
 import {
     willLeaveThisMonth,
     willLeaveThisHour,
     humanReadableAvailabilityTimes,
-} from "./helpers/availabilityTimeHelpers";
-import { mappingIdToFilename } from "./collectionDataAcnhApiMapping";
+} from "./../helpers/availabilityTimeHelpers";
+import { mappingIdToFilename } from "./../data/collectionDataAcnhApiMapping";
 
 export default function EntryGridCtrl({
     entry: {
