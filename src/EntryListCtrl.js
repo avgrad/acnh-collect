@@ -1,37 +1,25 @@
 import React from "react";
+import "./collection-list.css";
 import { useCollection } from "./useCollection";
 import lang, { generalLangProxy } from "./resources";
 import {
-    getTimeRanges,
-    getMonthRanges,
     willLeaveThisMonth,
     willLeaveThisHour,
+    humanReadableAvailabilityTimes,
 } from "./helpers/availabilityTimeHelpers";
 import CheckBox from "./CheckBox";
 import { useCurrentMonth, useCurrentHour } from "./helpers/useCurrentTime";
 
 function formatAvailabilityTimes(months, hours) {
-    const ms = getMonthRanges(months)
-        .map((rng) =>
-            rng.allYear
-                ? lang.availability.ALL_YEAR
-                : rng.from === rng.to
-                ? lang.availability[rng.from]
-                : lang.availability[rng.from] +
-                  " " +
-                  lang.availability.TO +
-                  " " +
-                  lang.availability[rng.to]
-        )
+    const formatted = humanReadableAvailabilityTimes(months, hours);
+    const ms = formatted
+        .filter((rng) => rng.type === "MONTH")
+        .map((rng) => rng.text)
         .join(", ");
-    const hs = getTimeRanges(hours)
-        .map((rng) =>
-            rng.allDay
-                ? lang.availability.ALL_DAY
-                : rng.from + "-" + rng.to + " " + lang.availability.CLOCK
-        )
+    const hs = formatted
+        .filter((rng) => rng.type === "TIME")
+        .map((rng) => rng.text)
         .join(", ");
-
     return ms + " — " + hs;
 }
 
@@ -181,7 +169,7 @@ function ArtCtrl({ entry }) {
     );
 }
 
-export default function EntryCtrl({ entry }) {
+export default function EntryListCtrl({ entry }) {
     switch (entry.type) {
         case "FISH":
         case "BUG":

@@ -5,6 +5,7 @@ import sort from "./sort";
 import entryType from "./entryType";
 import location from "./location";
 import availability from "./availability";
+import availabilityShort from "./availabilityShort";
 
 export default {
     general,
@@ -13,6 +14,7 @@ export default {
     entryType,
     location,
     availability,
+    availabilityShort,
 };
 
 export const generalLangProxy = (nameObj) => {

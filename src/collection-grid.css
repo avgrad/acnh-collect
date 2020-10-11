@@ -1,0 +1,113 @@
+:root {
+    --entry-header-background-color: rgb(210, 210, 210);
+    --entry-background-color: rgb(230, 230, 230);
+    --entry-additional-background-color: rgb(210, 210, 210);
+    --entry-additional-foreground-color: black;
+    --entry-additional-highlight-background: rgba(250, 250, 100, 0.5);
+}
+
+/* @media (prefers-color-scheme: light) { */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --entry-header-background-color: rgb(40, 40, 40);
+        --entry-background-color: rgb(20, 20, 20);
+        --entry-additional-background-color: rgba(0, 0, 0, 0.8);
+        --entry-additional-foreground-color: white;
+        --entry-additional-highlight-background: rgba(100, 100, 0, 0.8);
+    }
+}
+
+.collection-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.collection-grid .entry {
+    background-color: var(--entry-background-color);
+    flex: 0 0 13rem; /* <flex-grow> <flex-shrink> <flex-basis> */
+    overflow: hidden;
+    border-radius: 0.5rem;
+    position: relative;
+    display: grid;
+    grid-auto-rows: auto 1fr;
+}
+
+@media (max-width: 43rem) {
+    /* 688px / three columns */
+    .collection-grid .entry {
+        flex: 1 0 11rem; /* <flex-grow> <flex-shrink> <flex-basis> */
+    }
+}
+
+.collection-grid .checkbox {
+    margin: 0;
+}
+
+.collection-grid .entry-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    padding: 0.5rem;
+    background: var(--entry-header-background-color);
+    font-weight: bold;
+}
+
+.collection-grid .entry-header .entry-label {
+    line-height: 1em;
+    margin: calc(0.5 * var(--toolbar-gutter));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.collection-grid .entry-content {
+    margin: 0.5em;
+    margin-bottom: 3rem; /* keep SOME but not all space for info-tags */
+}
+
+.collection-grid .entry-content img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 7rem;
+    transition: filter 0.2s ease-out;
+}
+
+.collection-grid .entry[data-donated="true"]:not(:hover) img {
+    filter: grayscale(0.5) opacity(0.4);
+}
+
+.collection-grid .entry-additional-info {
+    position: absolute;
+    display: flex;
+    flex-flow: row-reverse wrap-reverse;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem;
+    gap: 0.3rem;
+    font-size: 0.7rem;
+    line-height: 1.3em;
+}
+
+.collection-grid .entry-additional-info span:not([role="img"]) {
+    display: inline-block;
+    padding: 0.3em 0.5em;
+    border-radius: 0.3em;
+    background: var(--entry-additional-background-color);
+    color: var(--entry-additional-foreground-color);
+}
+
+.collection-grid .entry-additional-info span:not([role="img"]).highlight {
+    background: var(--entry-additional-highlight-background);
+}
+
+.collection-grid .entry-additional-info span.hover-only {
+    display: none;
+}
+
+.collection-grid .entry:hover .entry-additional-info span.hover-only {
+    display: inline-block;
+}
