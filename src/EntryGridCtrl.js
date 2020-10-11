@@ -25,6 +25,7 @@ export default function EntryGridCtrl({
     },
 }) {
     const { donated, setDonated } = useCollection();
+    const isDonated = donated.includes(id);
     const currentHour = useCurrentHour();
     const currentMonth = useCurrentMonth();
     const leavingThisMonth = willLeaveThisMonth(northernMonths, currentMonth);
@@ -40,10 +41,10 @@ export default function EntryGridCtrl({
     const img = "https://acnhapi.com/v1/images/" + apiType + "/" + fileName;
 
     return (
-        <div className="entry" data-id={id}>
+        <div className="entry" data-id={id} data-donated={isDonated}>
             <div className="entry-header">
                 <CheckBox
-                    checked={donated.includes(id)}
+                    checked={isDonated}
                     onChange={(e) => setDonated(id, e.currentTarget.checked)}
                 />
                 <div className="entry-label">{generalLangProxy(name)}</div>
