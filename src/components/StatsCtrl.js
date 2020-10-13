@@ -1,10 +1,11 @@
 import React from "react";
+import "./stats.css";
 import { useCollection } from "./../useCollection";
 import lang from "./../resources";
 
 function StatCounter({ label, donated, all }) {
     return (
-        <li>
+        <li data-completed={donated === all}>
             {label} <sup>{donated}</sup>
             <span className="divider">&frasl;</span>
             <sub>{all}</sub>
@@ -12,7 +13,7 @@ function StatCounter({ label, donated, all }) {
     );
 }
 
-export default function StatsCtrl({ ...rest }) {
+export default function StatsCtrl() {
     const { stats } = useCollection();
     return (
         <ul className="stats">
