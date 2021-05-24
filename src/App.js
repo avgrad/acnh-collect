@@ -85,7 +85,7 @@ export default function App() {
                     </small>
                     <br />
                     <small>
-                        Image Hosting:{" "}
+                        Image Hosting and Data Source:{" "}
                         <a
                             href="https://acnhapi.com/"
                             target="_blank"

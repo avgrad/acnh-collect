@@ -1,7 +1,7 @@
 import React from "react";
 import "./collection-list.css";
 import { useCollection } from "./../useCollection";
-import lang, { generalLangProxy } from "./../resources";
+import lang, { nameLangProxy, generalLangProxy } from "./../resources";
 import {
     willLeaveThisMonth,
     willLeaveThisHour,
@@ -95,23 +95,24 @@ function FishInsectCtrl({ entry }) {
     const currentHour = useCurrentHour();
     return (
         <BasicEntryCtrl
-            checked={donated.includes(entry.id)}
-            onCheckedChanged={(d) => setDonated(entry.id, d)}
-            label={
-                lang.entryType[entry.type] + " " + generalLangProxy(entry.name)
-            }
+            checked={donated.includes(entry.filename)}
+            onCheckedChanged={(d) => setDonated(entry.filename, d)}
+            label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
             sublabel={`${entry.price || 0} 💰 — ${
-                lang.location[entry.location]
+                lang.location[entry.availability.location]
             }`}
             secondary={formatAvailabilityTimes(
-                entry.northernMonths,
-                entry.hours
+                entry.availability["month-array-northern"],
+                entry.availability["time-array"]
             )}
             leavingThisMonth={willLeaveThisMonth(
-                entry.northernMonths,
+                entry.availability["month-array-northern"],
                 currentMonth
             )}
-            leavingThisHour={willLeaveThisHour(entry.hours, currentHour)}
+            leavingThisHour={willLeaveThisHour(
+                entry.availability["time-array"],
+                currentHour
+            )}
         />
     );
 }
@@ -122,21 +123,22 @@ function SeaCreatureCtrl({ entry }) {
     const currentHour = useCurrentHour();
     return (
         <BasicEntryCtrl
-            checked={donated.includes(entry.id)}
-            onCheckedChanged={(d) => setDonated(entry.id, d)}
-            label={
-                lang.entryType[entry.type] + " " + generalLangProxy(entry.name)
-            }
+            checked={donated.includes(entry.filename)}
+            onCheckedChanged={(d) => setDonated(entry.filename, d)}
+            label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
             sublabel={`${entry.price || 0} 💰`}
             secondary={formatAvailabilityTimes(
-                entry.northernMonths,
-                entry.hours
+                entry.availability["month-array-northern"],
+                entry.availability["time-array"]
             )}
             leavingThisMonth={willLeaveThisMonth(
-                entry.northernMonths,
+                entry.availability["month-array-northern"],
                 currentMonth
             )}
-            leavingThisHour={willLeaveThisHour(entry.hours, currentHour)}
+            leavingThisHour={willLeaveThisHour(
+                entry.availability["time-array"],
+                currentHour
+            )}
         />
     );
 }
@@ -145,11 +147,9 @@ function FossilCtrl({ entry }) {
     const { donated, setDonated } = useCollection();
     return (
         <BasicEntryCtrl
-            checked={donated.includes(entry.id)}
-            onCheckedChanged={(d) => setDonated(entry.id, d)}
-            label={
-                lang.entryType[entry.type] + " " + generalLangProxy(entry.name)
-            }
+            checked={donated.includes(entry.filename)}
+            onCheckedChanged={(d) => setDonated(entry.filename, d)}
+            label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
             sublabel={`${entry.price || 0} 💰`}
         />
     );
@@ -159,12 +159,10 @@ function ArtCtrl({ entry }) {
     const { donated, setDonated } = useCollection();
     return (
         <BasicEntryCtrl
-            checked={donated.includes(entry.id)}
-            onCheckedChanged={(d) => setDonated(entry.id, d)}
-            label={
-                lang.entryType[entry.type] + " " + generalLangProxy(entry.name)
-            }
-            secondary={generalLangProxy(entry.fakeInfo)}
+            checked={donated.includes(entry.filename)}
+            onCheckedChanged={(d) => setDonated(entry.filename, d)}
+            label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
+            secondary={generalLangProxy(entry["fake-info"])}
         />
     );
 }

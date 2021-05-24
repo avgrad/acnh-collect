@@ -1,7 +1,7 @@
 import React from "react";
 import "./collection-grid.css";
 import CheckBox from "./CheckBox";
-import lang, { generalLangProxy } from "./../resources";
+import lang, { nameLangProxy, generalLangProxy } from "./../resources";
 import { useCollection } from "./../useCollection";
 import { useCurrentHour, useCurrentMonth } from "./../helpers/useCurrentTime";
 import {
@@ -9,48 +9,43 @@ import {
     willLeaveThisHour,
     humanReadableAvailabilityTimes,
 } from "./../helpers/availabilityTimeHelpers";
-import { mappingIdToFilename } from "./../data/collectionDataAcnhApiMapping";
 
 export default function EntryGridCtrl({
     entry: {
-        id,
+        //id,
+        filename,
         type,
         name,
-        //img = "https://acnhapi.com/v1/images/fish/7",
+        availability: {
+            "month-array-northern": northernMonths,
+            "time-array": hours,
+            location,
+        } = {},
         price,
-        location,
-        hours,
-        northernMonths,
-        fakeInfo,
+        image_uri,
+        "fake-info": fakeInfo,
     },
 }) {
     const { donated, setDonated } = useCollection();
-    const isDonated = donated.includes(id);
+    const isDonated = donated.includes(filename);
     const currentHour = useCurrentHour();
     const currentMonth = useCurrentMonth();
     const leavingThisMonth = willLeaveThisMonth(northernMonths, currentMonth);
     const leavingThisHour = willLeaveThisHour(hours, currentHour);
-    const apiType = {
-        BUG: "bugs", // 600x600
-        FISH: "fish", // 1024x512
-        SEACREATURE: "sea", // 640x640
-        FOSSIL: "fossils", // 128x128
-        ART: "art", // 128x128
-    }[type];
-    const fileName = mappingIdToFilename[id] || id;
-    const img = "https://acnhapi.com/v1/images/" + apiType + "/" + fileName;
 
     return (
-        <div className="entry" data-id={id} data-donated={isDonated}>
+        <div className="entry" data-id={filename} data-donated={isDonated}>
             <div className="entry-header">
                 <CheckBox
                     checked={isDonated}
-                    onChange={(e) => setDonated(id, e.currentTarget.checked)}
+                    onChange={(e) =>
+                        setDonated(filename, e.currentTarget.checked)
+                    }
                 />
-                <div className="entry-label">{generalLangProxy(name)}</div>
+                <div className="entry-label">{nameLangProxy(name)}</div>
             </div>
             <div className="entry-content">
-                <img src={img} alt={generalLangProxy(name)} />
+                <img src={image_uri} alt={nameLangProxy(name)} />
                 <div className="entry-additional-info">
                     <span>{lang.entryType[type]}</span>
 

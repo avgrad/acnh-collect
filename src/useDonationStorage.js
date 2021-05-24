@@ -1,3 +1,7 @@
+import {
+    mappingFilenameToId,
+    mappingIdToFilename,
+} from "./data/collectionDataAcnhApiMapping";
 import { useLocalStorageReducer } from "./helpers/useLocalStorageReducer";
 
 export default function useDonationStorage() {
@@ -22,8 +26,12 @@ export default function useDonationStorage() {
         "donated"
     );
 
-    const setDonated = (id, donated) =>
-        dispatchDonated({ type: "SET_DONATED", id, donated });
+    const setDonated = (filename, donated) =>
+        dispatchDonated({
+            type: "SET_DONATED",
+            id: mappingFilenameToId[filename],
+            donated,
+        });
 
-    return [donated, setDonated];
+    return [donated.map((id) => mappingIdToFilename[id]), setDonated];
 }

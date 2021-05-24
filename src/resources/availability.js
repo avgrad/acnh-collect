@@ -86,3 +86,18 @@ const languageResourceProxy = new Proxy(languageResources, {
 });
 
 export default languageResourceProxy;
+
+export const months = [
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER",
+];

@@ -10,3 +10,10 @@ Your data is saved only locally within your browser, therefore no account is nee
 - optimized build using `yarn build`
 - deploy to gh-pages `yarn version` (automatically builds and commits, push using `git push --tags`)
 
+### Update Collection Data
+
+To download updated collection data from ACNHApi to `src/data/` run `yarn update-data`.
+
+For art pieces, info about how to spot fakes is injected.
+
+(this step it is not included in the build process automatically, the data update is supposed to be manual)

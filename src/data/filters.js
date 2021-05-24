@@ -1,5 +1,3 @@
-import collectionData from "./collectionData";
-
 export const filters = {
     collected: "COLLECTED",
     uncollected: "UNCOLLECTED",
@@ -14,7 +12,7 @@ export const filters = {
 
 function filterForAvailabilityAtTime(currentHour) {
     return (entry) => {
-        const availableHours = entry.hours;
+        const availableHours = entry.availability?.["time-array"];
         if (availableHours != null) return availableHours.includes(currentHour);
         return true;
     };
@@ -22,7 +20,7 @@ function filterForAvailabilityAtTime(currentHour) {
 
 function filterForAvailabilityAtMonth(currentMonth) {
     return (entry) => {
-        const availableMonths = entry.northernMonths;
+        const availableMonths = entry.availability?.["month-array-northern"];
         if (availableMonths != null)
             return availableMonths.includes(currentMonth);
         return true;
@@ -30,6 +28,7 @@ function filterForAvailabilityAtMonth(currentMonth) {
 }
 
 export function applyFiltersToData(
+    collectionData,
     filterSet,
     currentMonth,
     currentHour,
@@ -39,12 +38,12 @@ export function applyFiltersToData(
 
     if (!filterSet.includes(filters.collected))
         collection = collection.filter(
-            (entry) => !donatedItems.includes(entry.id)
+            (entry) => !donatedItems.includes(entry.filename)
         );
 
     if (!filterSet.includes(filters.uncollected))
         collection = collection.filter((entry) =>
-            donatedItems.includes(entry.id)
+            donatedItems.includes(entry.filename)
         );
 
     if (filterSet.includes(filters.currentTime))

@@ -8,7 +8,8 @@
         "eject": "react-scripts eject",
         "predeploy": "yarn run build",
         "deploy": "gh-pages -m \"Deploy %npm_package_version% to gh-pages\" -d ./build/",
-        "postversion": "git push --tags && yarn run deploy"
+        "postversion": "git push --tags && yarn run deploy",
+        "update-data": "cd scripts && node loadAcnhData.js"
     },
     "dependencies": {
         "react": "^16.13.1",

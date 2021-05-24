@@ -5,10 +5,10 @@ import lang from "./../resources";
 
 function StatCounter({ label, donated, all }) {
     return (
-        <li data-completed={donated === all}>
+        <li data-completed={donated === all && all !== 0}>
             {label} <sup>{donated}</sup>
             <span className="divider">&frasl;</span>
-            <sub>{all}</sub>
+            <sub>{all === 0 ? "?" : all}</sub>
         </li>
     );
 }

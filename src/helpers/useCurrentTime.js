@@ -24,8 +24,8 @@ export default function useCurrentTime() {
 }
 
 export function useCurrentMonth() {
-    const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
-    useClock((d) => setCurrentMonth(d.getMonth()), 60 * 60 * 1000);
+    const [currentMonth, setCurrentMonth] = useState(new Date().getMonth() + 1);
+    useClock((d) => setCurrentMonth(d.getMonth() + 1), 60 * 60 * 1000);
     return currentMonth;
 }
 

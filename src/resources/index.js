@@ -26,3 +26,16 @@ export const generalLangProxy = (nameObj) => {
         nameObj
     )}]`;
 };
+
+export const nameLangProxy = (nameObj) => {
+    const langs = Object.keys(nameObj);
+    const regex = new RegExp("^name-.." + currentLang + "$");
+    const matchingLang = langs.find((l) => regex.test(l));
+    const name = nameObj[matchingLang];
+    if (name) {
+        return name;
+    }
+    return `PROPERTY_${currentLang.toUpperCase()}_NOT_FOUND[${JSON.stringify(
+        nameObj
+    )}]`;
+};

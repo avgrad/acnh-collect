@@ -1,0 +1,174 @@
+{
+    "quaint_painting": {
+        "de": "Fälschung zeigt Frau viel mehr als dünnen Fluss Milch ausgießen",
+        "en": "Fake shows woman pouring much more than thin stream of milk"
+    },
+    "graceful_painting": {
+        "de": "Fälschung zeigt Frau viel größer, füllt fast ganzes Gemälde",
+        "en": "Fake shows woman larger, almost full painting"
+    },
+    "robust_statue": {
+        "de": "Fälschung trägt eine Armbanduhr",
+        "en": "Fake is wearing a wrist watch"
+    },
+    "common_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "famous_painting": {
+        "de": "Fälschung hat Augenbrauen",
+        "en": "Fake has eyebrows"
+    },
+    "flowery_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "detailed_painting": {
+        "de": "Fälschung hat lilanes Laub, fehlende Unterschrift auf linker Seite",
+        "en": "Fake has purple foliage and missing signature on left side"
+    },
+    "rock-head_statue": {
+        "de": "Fälschung lächelt",
+        "en": "Fake is smiling"
+    },
+    "serene_painting": {
+        "de": "Fälschung hält einen grauen Hermelin",
+        "en": "Fake has a grey ermine"
+    },
+    "basic_painting": {
+        "de": "Fälschung hat längere Haare (vollständiger Pony)",
+        "en": "Fake shows subject with more hair (full fringe)"
+    },
+    "beautiful_statue": {
+        "de": "Fälschung trägt eine Halskette",
+        "en": "Fake is wearing a necklace"
+    },
+    "amazing_painting": {
+        "de": "Fälschung zeigt mittigen Mann ohne Hut",
+        "en": "Fake shows central subject without his hat"
+    },
+    "valiant_statue": {
+        "de": "Fälschung hat linkes Bein vorne",
+        "en": "Fake has left leg forward"
+    },
+    "solemn_painting": {
+        "de": "Fälschung zeigt Mann im Hintergrund seinen Arm höher heben",
+        "en": "Fake shows man in the background lifting his arm higher"
+    },
+    "twinkling_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "scary_painting": {
+        "de": "Fälschung hat Augenbrauen nach außen geneigt",
+        "en": "Fake has eyebrows tilted outwards"
+    },
+    "gallant_statue": {
+        "de": "Fälschung hält etwas unter seinem Arm",
+        "en": "Fake is holding something under his arm"
+    },
+    "mystic_statue": {
+        "de": "Fälschung trägt Ohrring am rechten Ohr",
+        "en": "Fake has an earring on the right ear"
+    },
+    "jolly_painting": {
+        "de": "Fälschung fehlt Spross auf der Brust",
+        "en": "Fake has sprout on chest missing"
+    },
+    "informative_statue": {
+        "de": "Fälschung ist blau",
+        "en": "Fake is blue"
+    },
+    "nice_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "moody_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "warrior_statue": {
+        "de": "Fälschung hält eine Schaufel",
+        "en": "Fake is Holding a shovel"
+    },
+    "glowing_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "perfect_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "wistful_painting": {
+        "de": "Fälschung hat sternförmige Ohrringe",
+        "en": "Fake has star shaped earrings"
+    },
+    "tremendous_statue": {
+        "de": "Fälschung hat einen Deckel",
+        "en": "Fake has a lid"
+    },
+    "mysterious_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "calm_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "moving_painting": {
+        "de": "Fälschung fehlen Bäume in rechter oberer Ecke",
+        "en": "Fake misses trees in top right corner"
+    },
+    "proper_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "wild_painting_left_half": {
+        "de": "Fälschung zeigt Monster in Grün",
+        "en": "Fake shows monster in green"
+    },
+    "wild_painting_right_half": {
+        "de": "Fälschung zeigt Monster in Weiß",
+        "en": "Fake shows monster in white"
+    },
+    "ancient_statue": {
+        "de": "Fälschung hat einen Kopfschmuck mit \"Antennen\"",
+        "en": "Fake has a headpiece with \"antennas\""
+    },
+    "sinking_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "familiar_statue": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "worthy_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "warm_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "dynamic_painting": {
+        "de": "immer original",
+        "en": "always genuine"
+    },
+    "scenic_painting": {
+        "de": "Fälschung zeigt nur einen jäger mit weniger Hunden",
+        "en": "Fake shows only one hunter with the dogs"
+    },
+    "academic_painting": {
+        "de": "Fälschung hat einen Kaffeefleck in rechter oberer Ecke",
+        "en": "Fake has coffee stain in top right corner"
+    },
+    "motherly_statue": {
+        "de": "Fälschung hängt die Zunge aus dem Maul",
+        "en": "Fake has tongue sticking out"
+    },
+    "great_statue": {
+        "de": "immer original",
+        "en": "always genuine"
+    }
+}

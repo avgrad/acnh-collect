@@ -1,13 +1,11 @@
-import { months as baseMonths } from "./../data/collectionData";
+import { months as monthNames } from "./../resources/availability";
 import lang from "./../resources";
 
 export function getMonthRanges(months) {
     if (!months) return []; // null or [] ?
     const result = [];
 
-    for (let m of months
-        .map((m) => baseMonths.indexOf(m))
-        .sort((a, b) => a - b)) {
+    for (let m of months.sort((a, b) => a - b)) {
         if (result.length === 0) {
             result.push({ from: m, to: m });
             continue;
@@ -22,8 +20,8 @@ export function getMonthRanges(months) {
     }
 
     // handle DEZ-JAN (over turn of the year) as one range result
-    const beforeTurnIdx = result.findIndex((rng) => rng.to === 11);
-    const afterTurnIdx = result.findIndex((rng) => rng.from === 0);
+    const beforeTurnIdx = result.findIndex((rng) => rng.to === 12);
+    const afterTurnIdx = result.findIndex((rng) => rng.from === 1);
     if (
         beforeTurnIdx > -1 &&
         afterTurnIdx > -1 &&
@@ -34,13 +32,13 @@ export function getMonthRanges(months) {
     }
 
     const allYear =
-        result.length === 1 && result[0].from === 0 && result[0].to === 11
+        result.length === 1 && result[0].from === 1 && result[0].to === 12
             ? { allYear: true }
             : {};
 
     return result.map((rng) => ({
-        from: baseMonths[rng.from],
-        to: baseMonths[rng.to],
+        from: monthNames[rng.from - 1],
+        to: monthNames[rng.to - 1],
         ...allYear,
     }));
 }
@@ -91,10 +89,8 @@ export function getTimeRanges(hours) {
 export function willLeaveThisMonth(months, currentMonth) {
     if (!months) return null;
 
-    const nextMonth = baseMonths[(currentMonth + 1) % 12];
-    return (
-        months.includes(baseMonths[currentMonth]) && !months.includes(nextMonth)
-    );
+    const nextMonth = 1 + (currentMonth % 12);
+    return months.includes(currentMonth) && !months.includes(nextMonth);
 }
 
 export function willLeaveThisHour(hours, currentHour) {
