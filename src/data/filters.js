@@ -8,6 +8,7 @@ export const filters = {
     showSeaCreatures: "SHOW_SEACREATURES",
     showFossils: "SHOW_FOSSILS",
     showArt: "SHOW_ART",
+    showSongs: "SHOW_SONGS",
 };
 
 function filterForAvailabilityAtTime(currentHour) {
@@ -70,6 +71,9 @@ export function applyFiltersToData(
 
     if (!filterSet.includes(filters.showArt))
         collection = collection.filter((entry) => entry.type !== "ART");
+
+    if (!filterSet.includes(filters.showSongs))
+        collection = collection.filter((entry) => entry.type !== "SONG");
 
     return collection;
 }

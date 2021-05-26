@@ -49,10 +49,14 @@ export const Provider = ({ children }) => {
         "ART",
         activeFilterSet.includes(filters.showArt)
     );
+    const [songs, songsLoading] = useAcnhResource(
+        "SONG",
+        activeFilterSet.includes(filters.showSongs)
+    );
 
     const collectionData = useMemo(
-        () => [...fish, ...bugs, ...fossils, ...seaCreatures, ...art],
-        [fish, bugs, fossils, seaCreatures, art]
+        () => [...fish, ...bugs, ...fossils, ...seaCreatures, ...art, ...songs],
+        [fish, bugs, fossils, seaCreatures, art, songs]
     );
 
     const [donated, setDonated] = useDonationStorage();
@@ -105,8 +109,14 @@ export const Provider = ({ children }) => {
                 ).length,
                 all: art.length,
             },
+            songs: {
+                donated: donated.filter((d) =>
+                    songs.find((s) => s.filename === d)
+                ).length,
+                all: songs.length,
+            },
         }),
-        [donated, bugs, fish, seaCreatures, fossils, art]
+        [donated, bugs, fish, seaCreatures, fossils, art, songs]
     );
 
     const store = {

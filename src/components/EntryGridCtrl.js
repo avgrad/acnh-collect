@@ -19,6 +19,7 @@ export default function EntryGridCtrl({
         availability: { months_northern, hours, location } = {},
         price,
         image_uri,
+        isOrderable,
         fake_info,
     },
 }) {
@@ -62,6 +63,9 @@ export default function EntryGridCtrl({
                                 </span>
                             )}
                             {location && <span>{lang.location[location]}</span>}
+                            {type === "SONG" && !isOrderable && (
+                                <span>{lang.general.NOT_ORDERABLE}</span>
+                            )}
 
                             {humanReadableAvailabilityTimes(
                                 months_northern,

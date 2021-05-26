@@ -3,7 +3,7 @@ const fs = require("fs");
 
 const artFakeInfo = require("./artFakeInfo.json");
 
-const apiTypes = ["fish", "bugs", "fossils", "sea", "art"];
+const apiTypes = ["fish", "bugs", "fossils", "sea", "art", "songs"];
 
 const typeFilenameMap = {
     fish: "FISH",
@@ -11,6 +11,7 @@ const typeFilenameMap = {
     fossils: "FOSSIL",
     sea: "SEACREATURE",
     art: "ART",
+    songs: "SONG",
 };
 
 const locationMap = {
@@ -107,8 +108,11 @@ function mapApiObject(apiItem, type) {
     }
 
     // other properties
-    if (apiItem.price) item.price = apiItem.price;
-    if (apiItem["part-of"]) item.part_of = apiItem["part-of"];
+    if (Object.keys(apiItem).includes("price")) item.price = apiItem.price;
+    if (Object.keys(apiItem).includes("isOrderable"))
+        item.isOrderable = apiItem.isOrderable;
+    if (Object.keys(apiItem).includes("part-of"))
+        item.part_of = apiItem["part-of"];
 
     // enhance art data with fake-info
     if (type === "art") item.fake_info = artFakeInfo[apiItem["file-name"]];

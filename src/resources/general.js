@@ -19,6 +19,10 @@ const languageResources = {
         en: "Bells",
         de: "Sternis",
     },
+    NOT_ORDERABLE: {
+        en: "not orderable",
+        de: "nicht bestellbar",
+    },
 };
 
 const languageResourceProxy = new Proxy(languageResources, {

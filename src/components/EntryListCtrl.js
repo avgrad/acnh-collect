@@ -167,6 +167,22 @@ function ArtCtrl({ entry }) {
     );
 }
 
+function SongCtrl({ entry }) {
+    const { donated, setDonated } = useCollection();
+    return (
+        <BasicEntryCtrl
+            checked={donated.includes(entry.filename)}
+            onCheckedChanged={(d) => setDonated(entry.filename, d)}
+            label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
+            secondary={
+                entry.type === "SONG" && !entry.isOrderable
+                    ? lang.general.NOT_ORDERABLE
+                    : ""
+            }
+        />
+    );
+}
+
 export default function EntryListCtrl({ entry }) {
     switch (entry.type) {
         case "FISH":
@@ -178,6 +194,8 @@ export default function EntryListCtrl({ entry }) {
             return <FossilCtrl entry={entry} />;
         case "ART":
             return <ArtCtrl entry={entry} />;
+        case "SONG":
+            return <SongCtrl entry={entry} />;
         default:
             return (
                 <div style={{ backgroundColor: "red" }}>

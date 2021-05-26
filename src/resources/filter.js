@@ -21,6 +21,10 @@ const languageResources = {
         en: "Show Art",
         de: "Kunstwerke anzeigen",
     },
+    SHOW_SONGS: {
+        en: "Show KK Songs",
+        de: "KK Songs anzeigen",
+    },
     UNCOLLECTED: {
         en: "Uncollected ",
         de: "Ungestiftete",

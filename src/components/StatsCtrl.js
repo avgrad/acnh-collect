@@ -25,6 +25,7 @@ export default function StatsCtrl() {
                 {...stats.seaCreatures}
             />
             <StatCounter label={lang.entryType.ART} {...stats.art} />
+            <StatCounter label={lang.entryType.SONG} {...stats.songs} />
         </ul>
     );
 }

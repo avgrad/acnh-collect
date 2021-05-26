@@ -21,6 +21,10 @@ const languageResources = {
         en: "🎨",
         de: "🎨",
     },
+    SONG: {
+        en: "🎵",
+        de: "🎵",
+    },
 };
 
 const languageResourceProxy = new Proxy(languageResources, {
