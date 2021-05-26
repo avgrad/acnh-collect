@@ -1,11 +1,11 @@
-var https = require("https");
-var fs = require("fs");
+const https = require("https");
+const fs = require("fs");
 
-var artFakeInfo = require("./artFakeInfo.json");
+const artFakeInfo = require("./artFakeInfo.json");
 
-var apiTypes = ["fish", "bugs", "fossils", "sea", "art"];
+const apiTypes = ["fish", "bugs", "fossils", "sea", "art"];
 
-var typeFilenameMap = {
+const typeFilenameMap = {
     fish: "FISH",
     bugs: "BUG",
     fossils: "FOSSIL",
@@ -13,7 +13,7 @@ var typeFilenameMap = {
     art: "ART",
 };
 
-var locationMap = {
+const locationMap = {
     "On the ground": "GROUND",
     River: "RIVER",
     "Hitting rocks": "ROCKS",
@@ -48,14 +48,14 @@ var locationMap = {
 function downloadJson(url, callback) {
     https
         .get(url, function (res) {
-            var json = "";
+            let json = "";
             res.on("data", function (chunk) {
                 json += chunk;
             });
             res.on("end", function () {
                 if (res.statusCode === 200) {
                     try {
-                        var data = JSON.parse(json);
+                        const data = JSON.parse(json);
                         callback(data);
                     } catch (e) {
                         console.log(
@@ -74,31 +74,54 @@ function downloadJson(url, callback) {
 }
 
 function saveToFile(filePath, strContent) {
-    var file = fs.createWriteStream(filePath);
+    const file = fs.createWriteStream(filePath);
     file.write(strContent, "utf8", () => console.log(filePath + " written"));
 }
 
-function downloadAcnhApiData(type) {
-    var url = "https://acnhapi.com/v1a/" + type;
-    var filePath = "../src/data/" + typeFilenameMap[type] + ".json";
-    downloadJson(url, (data) => {
-        // enhance art data with fake-info
-        if (type === "art") {
-            data = data.map((item) => ({
-                ...item,
-                "fake-info": artFakeInfo[item["file-name"]],
-            }));
-        }
+function mapApiObject(apiItem, type) {
+    // basic info
+    const item = {
+        id: apiItem.id,
+        filename: apiItem["file-name"],
+        image_uri: apiItem.image_uri,
+    };
 
-        // map location data to enums (for localization)
-        data = data.map((item) => {
-            if (item.availability?.location) {
-                item.availability.location =
-                    locationMap[item.availability.location] ??
-                    item.availability.location;
-            }
-            return item;
-        });
+    // map name object to reduce size
+    if (apiItem.name) {
+        item.name = {
+            en: apiItem.name["name-USen"],
+            de: apiItem.name["name-EUde"],
+        };
+    }
+
+    // map availability data (location to enums for localization)
+    if (apiItem.availability) {
+        item.availability = {
+            location:
+                locationMap[apiItem.availability.location] ??
+                apiItem.availability.location,
+            months_northern: apiItem.availability["month-array-northern"],
+            months_southern: apiItem.availability["month-array-southern"],
+            hours: apiItem.availability["time-array"],
+        };
+    }
+
+    // other properties
+    if (apiItem.price) item.price = apiItem.price;
+    if (apiItem["part-of"]) item.part_of = apiItem["part-of"];
+
+    // enhance art data with fake-info
+    if (type === "art") item.fake_info = artFakeInfo[apiItem["file-name"]];
+
+    return item;
+}
+
+function downloadAcnhApiData(type) {
+    const url = "https://acnhapi.com/v1a/" + type;
+    const filePath = "../src/data/" + typeFilenameMap[type] + ".json";
+    downloadJson(url, (data) => {
+        // map item (better keys, reduced file size)
+        data = data.map((item) => mapApiObject(item, type));
 
         // save it to file
         saveToFile(filePath, JSON.stringify(data, null, 2));

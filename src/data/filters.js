@@ -12,7 +12,7 @@ export const filters = {
 
 function filterForAvailabilityAtTime(currentHour) {
     return (entry) => {
-        const availableHours = entry.availability?.["time-array"];
+        const availableHours = entry.availability?.hours;
         if (availableHours != null) return availableHours.includes(currentHour);
         return true;
     };
@@ -20,7 +20,7 @@ function filterForAvailabilityAtTime(currentHour) {
 
 function filterForAvailabilityAtMonth(currentMonth) {
     return (entry) => {
-        const availableMonths = entry.availability?.["month-array-northern"];
+        const availableMonths = entry.availability?.months_northern;
         if (availableMonths != null)
             return availableMonths.includes(currentMonth);
         return true;

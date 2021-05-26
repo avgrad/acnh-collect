@@ -102,15 +102,15 @@ function FishInsectCtrl({ entry }) {
                 lang.location[entry.availability.location]
             }`}
             secondary={formatAvailabilityTimes(
-                entry.availability["month-array-northern"],
-                entry.availability["time-array"]
+                entry.availability.months_northern,
+                entry.availability.hours
             )}
             leavingThisMonth={willLeaveThisMonth(
-                entry.availability["month-array-northern"],
+                entry.availability.months_northern,
                 currentMonth
             )}
             leavingThisHour={willLeaveThisHour(
-                entry.availability["time-array"],
+                entry.availability.hours,
                 currentHour
             )}
         />
@@ -128,15 +128,15 @@ function SeaCreatureCtrl({ entry }) {
             label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
             sublabel={`${entry.price || 0} 💰`}
             secondary={formatAvailabilityTimes(
-                entry.availability["month-array-northern"],
-                entry.availability["time-array"]
+                entry.availability.months_northern,
+                entry.availability.hours
             )}
             leavingThisMonth={willLeaveThisMonth(
-                entry.availability["month-array-northern"],
+                entry.availability.months_northern,
                 currentMonth
             )}
             leavingThisHour={willLeaveThisHour(
-                entry.availability["time-array"],
+                entry.availability.hours,
                 currentHour
             )}
         />
@@ -162,7 +162,7 @@ function ArtCtrl({ entry }) {
             checked={donated.includes(entry.filename)}
             onCheckedChanged={(d) => setDonated(entry.filename, d)}
             label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
-            secondary={generalLangProxy(entry["fake-info"])}
+            secondary={generalLangProxy(entry.fake_info)}
         />
     );
 }

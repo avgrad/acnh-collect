@@ -16,21 +16,17 @@ export default function EntryGridCtrl({
         filename,
         type,
         name,
-        availability: {
-            "month-array-northern": northernMonths,
-            "time-array": hours,
-            location,
-        } = {},
+        availability: { months_northern, hours, location } = {},
         price,
         image_uri,
-        "fake-info": fakeInfo,
+        fake_info,
     },
 }) {
     const { donated, setDonated } = useCollection();
     const isDonated = donated.includes(filename);
     const currentHour = useCurrentHour();
     const currentMonth = useCurrentMonth();
-    const leavingThisMonth = willLeaveThisMonth(northernMonths, currentMonth);
+    const leavingThisMonth = willLeaveThisMonth(months_northern, currentMonth);
     const leavingThisHour = willLeaveThisHour(hours, currentHour);
 
     return (
@@ -49,9 +45,9 @@ export default function EntryGridCtrl({
                 <div className="entry-additional-info">
                     <span>{lang.entryType[type]}</span>
 
-                    {fakeInfo ? (
+                    {fake_info ? (
                         <span className="hover-only">
-                            {generalLangProxy(fakeInfo)}
+                            {generalLangProxy(fake_info)}
                         </span>
                     ) : (
                         <>
@@ -68,7 +64,7 @@ export default function EntryGridCtrl({
                             {location && <span>{lang.location[location]}</span>}
 
                             {humanReadableAvailabilityTimes(
-                                northernMonths,
+                                months_northern,
                                 hours,
                                 true
                             ).map((availability) => (

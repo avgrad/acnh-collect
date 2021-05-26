@@ -30,7 +30,6 @@ export default function useAcnhResource(type, load) {
                 .then((val) =>
                     val.map((item) => ({
                         ...item,
-                        filename: item["file-name"],
                         type: type,
                     }))
                 )
