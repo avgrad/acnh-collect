@@ -71,7 +71,7 @@ export default function App() {
                 <footer>
                     Source on{" "}
                     <a
-                        href="https://github.com/sydeslyde/acnh-collect"
+                        href="https://github.com/avgrad/acnh-collect"
                         target="_blank"
                         rel="noopener noreferrer">
                         GitHub
