@@ -1,6 +1,7 @@
 const https = require("https");
 const fs = require("fs");
 
+const newSongs200 = require("./newSongs200.json");
 const artFakeInfo = require("./artFakeInfo.json");
 
 const apiTypes = ["fish", "bugs", "fossils", "sea", "art", "songs"];
@@ -127,8 +128,14 @@ function downloadAcnhApiData(type) {
         // map item (better keys, reduced file size)
         data = data.map((item) => mapApiObject(item, type));
 
-        // save it to file
-        saveToFile(filePath, JSON.stringify(data, null, 2));
+        // add new KK songs from 2.0.0 (API not updated)
+        if (type === "songs") {
+            newSongs200.forEach((s) => data.push(s));
+        }
+
+        // save data to file (with line endings fixed to CRLF)
+        var strContent = JSON.stringify(data, null, 2).replace(/\n/g, "\r\n");
+        saveToFile(filePath, strContent);
     });
 }
 

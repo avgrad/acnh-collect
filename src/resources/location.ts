@@ -132,6 +132,6 @@ const languageResourceProxy = new Proxy(languageResources, {
     },
 });
 
-export default (languageResourceProxy as unknown) as LangResource<
+export default languageResourceProxy as unknown as LangResource<
     typeof languageResources
 >;

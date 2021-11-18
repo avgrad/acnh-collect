@@ -30,6 +30,7 @@ export type Stats = {
     fossils: Stat;
     art: Stat;
     songs: Stat;
+    gyroids: Stat;
 };
 
 export type CollectionData = {
@@ -61,34 +62,48 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
     const [activeFilterSet, setFilter] = useFilter(defaultFilters);
     const sort = useSort(SortFields.NAME, SortDirections.ASC);
 
-    const [fish, fishLoading] = useAcnhResource(
+    const [fish] = useAcnhResource(
         EntryType.FISH,
         activeFilterSet.includes(Filters.showFish)
     );
-    const [bugs, bugsLoading] = useAcnhResource(
+    const [bugs] = useAcnhResource(
         EntryType.BUG,
         activeFilterSet.includes(Filters.showBugs)
     );
-    const [fossils, fossilsLoading] = useAcnhResource(
+    const [fossils] = useAcnhResource(
         EntryType.FOSSIL,
         activeFilterSet.includes(Filters.showFossils)
     );
-    const [seaCreatures, seaCreaturesLoading] = useAcnhResource(
+    const [seaCreatures] = useAcnhResource(
         EntryType.SEACREATURE,
         activeFilterSet.includes(Filters.showSeaCreatures)
     );
-    const [art, artLoading] = useAcnhResource(
+    const [art] = useAcnhResource(
         EntryType.ART,
         activeFilterSet.includes(Filters.showArt)
     );
-    const [songs, songsLoading] = useAcnhResource(
+    const [songs] = useAcnhResource(
         EntryType.SONG,
         activeFilterSet.includes(Filters.showSongs)
     );
+    const [gyroids] = useAcnhResource(
+        EntryType.GYROID,
+        activeFilterSet.includes(Filters.showGyroids)
+    );
+
+    // TODO use resource loading values??
 
     const collectionData = useMemo(
-        () => [...fish, ...bugs, ...fossils, ...seaCreatures, ...art, ...songs],
-        [fish, bugs, fossils, seaCreatures, art, songs]
+        () => [
+            ...fish,
+            ...bugs,
+            ...fossils,
+            ...seaCreatures,
+            ...art,
+            ...songs,
+            ...gyroids,
+        ],
+        [fish, bugs, fossils, seaCreatures, art, songs, gyroids]
     );
 
     const [donated, setDonated] = useDonationStorage();
@@ -147,8 +162,14 @@ export const Provider = ({ children }: { children: React.ReactNode }) => {
                 ).length,
                 all: songs.length,
             },
+            gyroids: {
+                donated: donated.filter((d) =>
+                    gyroids.find((g) => g.filename === d)
+                ).length,
+                all: gyroids.length,
+            },
         }),
-        [donated, bugs, fish, seaCreatures, fossils, art, songs]
+        [donated, bugs, fish, seaCreatures, fossils, art, songs, gyroids]
     );
 
     const store = {

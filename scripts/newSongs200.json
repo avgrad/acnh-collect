@@ -1,0 +1,110 @@
+[
+    {
+        "filename": "mjk_Chillwave",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Chillwave.png",
+        "name": {
+            "en": "Chillwave",
+            "de": "Chillwave"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Bashment",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Bashment.png",
+        "name": {
+            "en": "K.K. Bashment",
+            "de": "K.K. Dancehall"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Break",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Break.png",
+        "name": {
+            "en": "K.K. Break",
+            "de": "K.K. Break"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Choro",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Choro.png",
+        "name": {
+            "en": "K.K. Chorinho",
+            "de": "K.K. Chorinho"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Dub",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Dub.png",
+        "name": {
+            "en": "K.K. Dub",
+            "de": "K.K. Dub"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Fugue",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Fugue.png",
+        "name": {
+            "en": "K.K. Fugue",
+            "de": "K.K. Fuge"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Hiphop",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Hiphop.png",
+        "name": {
+            "en": "K.K. Hop",
+            "de": "K.K. Hop"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Khoomii",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Khoomii.png",
+        "name": {
+            "en": "K.K. Khoomei",
+            "de": "K.K. Khöömei"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Lovers",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Lovers.png",
+        "name": {
+            "en": "K.K. Lovers",
+            "de": "K.K. Lovers"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Polka",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Polka.png",
+        "name": {
+            "en": "K.K. Polka",
+            "de": "K.K. Polka"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Android",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Android.png",
+        "name": {
+            "en": "K.K. Robot Synth",
+            "de": "K.K. Synthi"
+        },
+        "isOrderable": true
+    },
+    {
+        "filename": "mjk_Slackkey",
+        "image_uri": "https://acnhcdn.com/latest/Audio/mjk_Slackkey.png",
+        "name": {
+            "en": "K.K. Slack-Key",
+            "de": "K.K. Slack-Key"
+        },
+        "isOrderable": true
+    }
+]

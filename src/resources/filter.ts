@@ -26,6 +26,10 @@ const languageResources = {
         en: "Show KK Songs",
         de: "KK Songs anzeigen",
     },
+    SHOW_GYROIDS: {
+        en: "Show Gyroids",
+        de: "Gyroiden anzeigen",
+    },
     UNCOLLECTED: {
         en: "Uncollected ",
         de: "Ungestiftete",
@@ -58,6 +62,6 @@ const languageResourceProxy = new Proxy(languageResources, {
     },
 });
 
-export default (languageResourceProxy as unknown) as LangResource<
+export default languageResourceProxy as unknown as LangResource<
     typeof languageResources
 >;

@@ -34,6 +34,7 @@ export enum EntryType {
     SEACREATURE = "SEACREATURE",
     ART = "ART",
     SONG = "SONG",
+    GYROID = "GYROID",
 }
 
 export type Location =
@@ -90,6 +91,7 @@ export type BaseEntry = {
     part_of?: string;
     isOrderable?: boolean;
     fake_info?: Name;
+    info?: Name;
 };
 
 export type FishEntry = BaseEntry & {
@@ -126,10 +128,16 @@ export type SongEntry = BaseEntry & {
     isOrderable: boolean;
 };
 
+export type GyroidEntry = BaseEntry & {
+    type: EntryType.GYROID;
+    info: Name | null;
+};
+
 export type Entry =
     | FishEntry
     | BugEntry
     | FossilEntry
     | SeaCreatureEntry
     | ArtEntry
-    | SongEntry;
+    | SongEntry
+    | GyroidEntry;

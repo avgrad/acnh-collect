@@ -26,6 +26,10 @@ const languageResources = {
         en: "🎵",
         de: "🎵",
     },
+    GYROID: {
+        en: "🤖",
+        de: "🤖",
+    },
 };
 
 const languageResourceProxy = new Proxy(languageResources, {
@@ -40,6 +44,6 @@ const languageResourceProxy = new Proxy(languageResources, {
     },
 });
 
-export default (languageResourceProxy as unknown) as LangResource<
+export default languageResourceProxy as unknown as LangResource<
     typeof languageResources
 >;

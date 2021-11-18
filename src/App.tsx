@@ -94,6 +94,13 @@ export default function App() {
                             target="_blank"
                             rel="noopener noreferrer">
                             ACNH API
+                        </a>{" "}
+                        and{" "}
+                        <a
+                            href="https://acnhcdn.com/"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            ACNH CDN
                         </a>
                     </small>
                     <hr />

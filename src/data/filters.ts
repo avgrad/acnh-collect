@@ -11,6 +11,7 @@ export enum Filters {
     showFossils = "SHOW_FOSSILS",
     showArt = "SHOW_ART",
     showSongs = "SHOW_SONGS",
+    showGyroids = "SHOW_GYROIDS",
 }
 
 function filterForAvailabilityAtTime(currentHour: Hour) {
@@ -83,6 +84,11 @@ export function applyFiltersToData(
     if (!filterSet.includes(Filters.showSongs))
         collection = collection.filter(
             (entry) => entry.type !== EntryType.SONG
+        );
+
+    if (!filterSet.includes(Filters.showGyroids))
+        collection = collection.filter(
+            (entry) => entry.type !== EntryType.GYROID
         );
 
     return collection;

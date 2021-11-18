@@ -9,7 +9,7 @@ import {
     willLeaveThisHour,
     humanReadableAvailabilityTimes,
 } from "./../helpers/availabilityTimeHelpers";
-import { Entry } from "../data/types";
+import { Entry, EntryType } from "../data/types";
 
 export default function EntryGridCtrl({
     entry: {
@@ -22,6 +22,7 @@ export default function EntryGridCtrl({
         image_uri,
         isOrderable,
         fake_info,
+        info,
     },
 }: {
     entry: Entry;
@@ -66,8 +67,11 @@ export default function EntryGridCtrl({
                                 </span>
                             )}
                             {location && <span>{lang.location[location]}</span>}
-                            {type === "SONG" && !isOrderable && (
+                            {type === EntryType.SONG && !isOrderable && (
                                 <span>{lang.general.NOT_ORDERABLE}</span>
+                            )}
+                            {type === EntryType.GYROID && info && (
+                                <span>{generalLangProxy(info)}</span>
                             )}
 
                             {humanReadableAvailabilityTimes(

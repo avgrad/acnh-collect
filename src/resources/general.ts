@@ -7,10 +7,8 @@ const languageResources = {
         de: "PLATZHALTER",
     },
     applicationUpdatedMessage: {
-        en:
-            "The Application was updated in the background. Click here or reload the page to use the newest version.",
-        de:
-            "Die Anwendung wurde im Hintergrund aktualisiert. Klicke hier oder aktualisiere die Seite, um die neueste Version zu verwenden.",
+        en: "The Application was updated in the background. Click here or reload the page to use the newest version.",
+        de: "Die Anwendung wurde im Hintergrund aktualisiert. Klicke hier oder aktualisiere die Seite, um die neueste Version zu verwenden.",
     },
     FILTER_SORT: {
         en: "Filter & Sorting",
@@ -38,6 +36,6 @@ const languageResourceProxy = new Proxy(languageResources, {
     },
 });
 
-export default (languageResourceProxy as unknown) as LangResource<
+export default languageResourceProxy as unknown as LangResource<
     typeof languageResources
 >;

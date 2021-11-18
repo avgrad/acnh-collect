@@ -34,6 +34,7 @@ export default function StatsCtrl() {
             />
             <StatCounter label={lang.entryType.ART} {...stats.art} />
             <StatCounter label={lang.entryType.SONG} {...stats.songs} />
+            <StatCounter label={lang.entryType.GYROID} {...stats.gyroids} />
         </ul>
     );
 }

@@ -16,6 +16,7 @@ import {
     EntryType,
     FishEntry,
     FossilEntry,
+    GyroidEntry,
     Hour,
     MonthNumber,
     SeaCreatureEntry,
@@ -194,11 +195,19 @@ function SongCtrl({ entry }: { entry: SongEntry }) {
             checked={donated.includes(entry.filename)}
             onCheckedChanged={(d) => setDonated(entry.filename, d)}
             label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
-            secondary={
-                entry.type === "SONG" && !entry.isOrderable
-                    ? lang.general.NOT_ORDERABLE
-                    : ""
-            }
+            sublabel={!entry.isOrderable ? lang.general.NOT_ORDERABLE : ""}
+        />
+    );
+}
+
+function GyroidCtrl({ entry }: { entry: GyroidEntry }) {
+    const { donated, setDonated } = useCollection();
+    return (
+        <BasicEntryCtrl
+            checked={donated.includes(entry.filename)}
+            onCheckedChanged={(d) => setDonated(entry.filename, d)}
+            label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
+            sublabel={entry.info ? generalLangProxy(entry.info) : ""}
         />
     );
 }
@@ -217,6 +226,8 @@ export default function EntryListCtrl({ entry }: { entry: Entry }) {
             return <ArtCtrl entry={entry} />;
         case EntryType.SONG:
             return <SongCtrl entry={entry} />;
+        case EntryType.GYROID:
+            return <GyroidCtrl entry={entry} />;
         default:
             const exhaustiveCheck: never = entry;
             return (

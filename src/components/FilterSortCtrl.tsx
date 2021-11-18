@@ -19,6 +19,7 @@ export default function FilterSortCtrl() {
                     <FilterCheckbox filter={Filters.showFossils} />
                     <FilterCheckbox filter={Filters.showArt} />
                     <FilterCheckbox filter={Filters.showSongs} />
+                    <FilterCheckbox filter={Filters.showGyroids} />
                 </div>
                 <div>
                     <FilterCheckbox filter={Filters.collected} />

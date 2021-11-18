@@ -10,9 +10,7 @@ import { Entry, EntryType } from "./types";
 function useIdleTrigger(trigger: boolean): boolean {
     const [isTriggered, setIsTriggered] = useState(trigger);
     useEffect(() => {
-        // @ts-ignore 2339 requestIdleCallback not on Windows & typeof globalThis
         if (window.requestIdleCallback)
-            // @ts-ignore 2339 requestIdleCallback not on Windows & typeof globalThis
             window.requestIdleCallback(() => setIsTriggered(true));
         else if (!isTriggered) setIsTriggered(trigger);
     }, [trigger, isTriggered]);
