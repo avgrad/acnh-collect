@@ -46,7 +46,7 @@ export default function EntryGridCtrl({
                 <div className="entry-label">{nameLangProxy(name)}</div>
             </div>
             <div className="entry-content">
-                <img src={image_uri} alt={nameLangProxy(name)} />
+                <img src={image_uri} alt={nameLangProxy(name)} loading="lazy" />
                 <div className="entry-additional-info">
                     <span>{lang.entryType[type]}</span>
 
