@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./collection-list.css";
 import { useCollection } from "./../useCollection";
 import lang, { nameLangProxy, generalLangProxy } from "./../resources";
@@ -14,6 +15,7 @@ import {
     BugEntry,
     Entry,
     EntryType,
+    Filename,
     FishEntry,
     FossilEntry,
     GyroidEntry,
@@ -52,6 +54,7 @@ const clockEmojis = [
 ];
 
 function BasicEntryCtrl({
+    filename,
     checked,
     onCheckedChanged,
     label,
@@ -60,6 +63,7 @@ function BasicEntryCtrl({
     leavingThisMonth,
     leavingThisHour,
 }: {
+    filename: Filename;
     checked?: boolean;
     onCheckedChanged?: (c: boolean) => void;
     label?: string;
@@ -72,7 +76,28 @@ function BasicEntryCtrl({
     const className =
         "entry " + (leavingThisMonth || leavingThisHour ? "leaving" : "");
     return (
-        <div className={className}>
+        <motion.div
+            className={className}
+            layout
+            key={filename}
+            initial={{
+                opacity: 0,
+                x: 50,
+            }}
+            animate={{
+                opacity: 1,
+                x: 0,
+                transition: {
+                    ease: "easeOut",
+                },
+            }}
+            exit={{
+                opacity: 0,
+                x: 50,
+                transition: {
+                    ease: "easeIn",
+                },
+            }}>
             <CheckBox
                 checked={checked}
                 onChange={(e) => onCheckedChanged?.(e.currentTarget.checked)}
@@ -106,7 +131,7 @@ function BasicEntryCtrl({
                     </small>
                 )}
             </div>
-        </div>
+        </motion.div>
     );
 }
 
@@ -116,6 +141,7 @@ function FishInsectCtrl({ entry }: { entry: FishEntry | BugEntry }) {
     const currentHour = useCurrentHour();
     return (
         <BasicEntryCtrl
+            filename={entry.filename}
             checked={donated.includes(entry.filename)}
             onCheckedChanged={(d) => setDonated(entry.filename, d)}
             label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
@@ -144,6 +170,7 @@ function SeaCreatureCtrl({ entry }: { entry: SeaCreatureEntry }) {
     const currentHour = useCurrentHour();
     return (
         <BasicEntryCtrl
+            filename={entry.filename}
             checked={donated.includes(entry.filename)}
             onCheckedChanged={(d) => setDonated(entry.filename, d)}
             label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
@@ -168,6 +195,7 @@ function FossilCtrl({ entry }: { entry: FossilEntry }) {
     const { donated, setDonated } = useCollection();
     return (
         <BasicEntryCtrl
+            filename={entry.filename}
             checked={donated.includes(entry.filename)}
             onCheckedChanged={(d) => setDonated(entry.filename, d)}
             label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
@@ -180,6 +208,7 @@ function ArtCtrl({ entry }: { entry: ArtEntry }) {
     const { donated, setDonated } = useCollection();
     return (
         <BasicEntryCtrl
+            filename={entry.filename}
             checked={donated.includes(entry.filename)}
             onCheckedChanged={(d) => setDonated(entry.filename, d)}
             label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
@@ -192,6 +221,7 @@ function SongCtrl({ entry }: { entry: SongEntry }) {
     const { donated, setDonated } = useCollection();
     return (
         <BasicEntryCtrl
+            filename={entry.filename}
             checked={donated.includes(entry.filename)}
             onCheckedChanged={(d) => setDonated(entry.filename, d)}
             label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}
@@ -204,6 +234,7 @@ function GyroidCtrl({ entry }: { entry: GyroidEntry }) {
     const { donated, setDonated } = useCollection();
     return (
         <BasicEntryCtrl
+            filename={entry.filename}
             checked={donated.includes(entry.filename)}
             onCheckedChanged={(d) => setDonated(entry.filename, d)}
             label={lang.entryType[entry.type] + " " + nameLangProxy(entry.name)}

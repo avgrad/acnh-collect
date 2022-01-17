@@ -11,6 +11,7 @@
 
 .expansion-panel {
     border: 2px solid var(--expansion-panel-head-background);
+    overflow: hidden;
 }
 
 .expansion-panel > label.checkbox {
@@ -44,12 +45,4 @@
     -webkit-transform: rotate(-135deg);
     -ms-transform: rotate(-135deg);
     transform: rotate(-135deg);
-}
-
-.expansion-panel .content {
-    display: none;
-}
-
-.expansion-panel .content.open {
-    display: block;
 }

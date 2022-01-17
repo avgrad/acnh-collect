@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./collection-grid.css";
 import CheckBox from "./CheckBox";
 import lang, { nameLangProxy, generalLangProxy } from "./../resources";
@@ -35,7 +36,24 @@ export default function EntryGridCtrl({
     const leavingThisHour = willLeaveThisHour(hours, currentHour);
 
     return (
-        <div className="entry" data-id={filename} data-donated={isDonated}>
+        <motion.div
+            className="entry"
+            data-id={filename}
+            layout
+            key={filename}
+            initial={{
+                opacity: 0,
+                scale: 0.1,
+            }}
+            animate={{
+                opacity: 1,
+                scale: 1,
+            }}
+            exit={{
+                opacity: 0,
+                scale: 0.1,
+            }}
+            data-donated={isDonated}>
             <div className="entry-header">
                 <CheckBox
                     checked={isDonated}
@@ -80,6 +98,7 @@ export default function EntryGridCtrl({
                                 true
                             ).map((availability) => (
                                 <span
+                                    key={availability.text}
                                     className={
                                         (leavingThisMonth &&
                                             availability.type === "MONTH") ||
@@ -95,6 +114,6 @@ export default function EntryGridCtrl({
                     )}
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

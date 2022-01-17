@@ -1,4 +1,5 @@
 import React from "react";
+import { AnimatePresence } from "framer-motion";
 import lang from "./../resources";
 import { useCollection } from "./../useCollection";
 import EntryListCtrl from "./EntryListCtrl";
@@ -19,13 +20,15 @@ export default function CollectionDisplayCtrl() {
 
     return (
         <div className={containerClassName}>
-            {displayedCollection.length === 0 ? (
-                <p className="no-matches">{lang.filter.NO_RESULTS}</p>
-            ) : (
-                displayedCollection.map((entry) => (
-                    <EntryDisplayCtrl entry={entry} />
-                ))
-            )}
+            <AnimatePresence>
+                {displayedCollection.length === 0 ? (
+                    <p className="no-matches">{lang.filter.NO_RESULTS}</p>
+                ) : (
+                    displayedCollection.map((entry) => (
+                        <EntryDisplayCtrl entry={entry} key={entry.filename} />
+                    ))
+                )}
+            </AnimatePresence>
         </div>
     );
 }
