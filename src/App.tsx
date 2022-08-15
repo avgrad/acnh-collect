@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import "@fontsource/baloo-paaji-2";
+import "@fontsource/baloo-paaji-2/700.css";
 import "./styles.css";
 import * as serviceWorker from "./serviceWorkerRegistration";
 import { Provider as CollectionProvider } from "./useCollection";
