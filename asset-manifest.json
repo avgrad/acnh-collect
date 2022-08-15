@@ -1,24 +1,28 @@
 {
   "files": {
-    "main.css": "./static/css/main.1c682c93.chunk.css",
-    "main.js": "./static/js/main.586328ba.chunk.js",
-    "runtime-main.js": "./static/js/runtime-main.7db36d61.js",
-    "static/js/2.b5eda628.chunk.js": "./static/js/2.b5eda628.chunk.js",
-    "static/js/3.8779b281.chunk.js": "./static/js/3.8779b281.chunk.js",
-    "static/js/4.fd01c9f4.chunk.js": "./static/js/4.fd01c9f4.chunk.js",
-    "static/js/5.643f0a6b.chunk.js": "./static/js/5.643f0a6b.chunk.js",
-    "static/js/6.466ab024.chunk.js": "./static/js/6.466ab024.chunk.js",
-    "static/js/7.be302aea.chunk.js": "./static/js/7.be302aea.chunk.js",
-    "static/js/8.5aef8bee.chunk.js": "./static/js/8.5aef8bee.chunk.js",
-    "static/js/9.1326934f.chunk.js": "./static/js/9.1326934f.chunk.js",
+    "main.css": "./static/css/main.8f567698.chunk.css",
+    "main.js": "./static/js/main.d9ddd138.chunk.js",
+    "runtime-main.js": "./static/js/runtime-main.9496943c.js",
+    "static/css/2.14c9f004.chunk.css": "./static/css/2.14c9f004.chunk.css",
+    "static/js/2.62a3a3d9.chunk.js": "./static/js/2.62a3a3d9.chunk.js",
+    "static/js/3.e7b4348d.chunk.js": "./static/js/3.e7b4348d.chunk.js",
+    "static/js/4.15f75b8a.chunk.js": "./static/js/4.15f75b8a.chunk.js",
+    "static/js/5.b2ead797.chunk.js": "./static/js/5.b2ead797.chunk.js",
+    "static/js/6.41178a52.chunk.js": "./static/js/6.41178a52.chunk.js",
+    "static/js/7.9bf9252b.chunk.js": "./static/js/7.9bf9252b.chunk.js",
+    "static/js/8.2442a260.chunk.js": "./static/js/8.2442a260.chunk.js",
+    "static/js/9.4773a9bf.chunk.js": "./static/js/9.4773a9bf.chunk.js",
     "index.html": "./index.html",
     "service-worker.js": "./service-worker.js",
-    "static/js/2.b5eda628.chunk.js.LICENSE.txt": "./static/js/2.b5eda628.chunk.js.LICENSE.txt"
+    "static/js/2.62a3a3d9.chunk.js.LICENSE.txt": "./static/js/2.62a3a3d9.chunk.js.LICENSE.txt",
+    "static/media/index.css": "./static/media/baloo-paaji-2-vietnamese-400-normal.fcb44883.woff2",
+    "static/media/700.css": "./static/media/baloo-paaji-2-vietnamese-700-normal.4212f5a7.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.7db36d61.js",
-    "static/js/2.b5eda628.chunk.js",
-    "static/css/main.1c682c93.chunk.css",
-    "static/js/main.586328ba.chunk.js"
+    "static/js/runtime-main.9496943c.js",
+    "static/css/2.14c9f004.chunk.css",
+    "static/js/2.62a3a3d9.chunk.js",
+    "static/css/main.8f567698.chunk.css",
+    "static/js/main.d9ddd138.chunk.js"
   ]
 }
